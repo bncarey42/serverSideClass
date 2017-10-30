@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+body{
+  color:#282828;
+  margin-bottom: 2em;
+  font-family: 'Lato', sans-serif;
+  background-color: #ebdbb2;
+}
+h1{
+  font-family: 'Libre Baskerville', serif;
+}
+h3{
+  font-family: 'Libre Baskerville', serif;
+}
+center{
+  margin-bottom: 2em;
+  max-width: 1000px;
+  text-align: center;
+  margin:auto;
+}
+.content{
+  text-align: left;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.error h3{
+  color: #cc241d;
+}
+/*
+font-family: 'Lato', sans-serif;
+font-family: 'Libre Baskerville', serif;
+*/

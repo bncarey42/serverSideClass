@@ -1,0 +1,36 @@
+#headerImg{
+  width: 50%;
+  height: 50%;
+}
+
+#Gutenburg{
+  color:#9d0006;
+  font-family: 'UnifrakturMaguntia', cursive;
+  font-size:4em;
+}
+.navMenu ul{
+  text-align: right;
+  width:100%;
+  background-color: #928374;
+}
+.navMenu li{
+  color: #f9f5d7;
+  display: inline;
+  padding-right: 2em;
+  padding-left: 2em;
+  padding-top: .5em;
+  padding-bottom: .5em;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+.navMenu a{
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.navMenu a:active{
+  color:#076678;
+}
+.navMenu li:hover{
+  background-color: #427b58;
+}

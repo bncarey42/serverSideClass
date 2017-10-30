@@ -1,0 +1,25 @@
+.button{
+  background-color: #427b58;
+    color: #f9f5d7;
+    font-family: 'IM Fell Great Primer', serif;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 15px;
+}
+.button:hover{
+  background-color: #8f3f71;
+}
+.price{
+  width: 50%;
+}
+.quantity{
+  width: 50%;
+}
+ th{
+   padding-left: 5px;
+   padding-right: 5px;
+ }
+.menuHeader{
+  color: #427b58;
+  text-transform: uppercase;
+}

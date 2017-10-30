@@ -1,0 +1,17 @@
+HW4 is due by end of class 10/30
+
+The first form is a welcome page, with greeting message and input boxes for the student’s name, gender (selection from Male and Female), grade (selection from freshman, …), and 
+course number (text box for CS489, MAT172, …).
+
+The second form is the survey page, with at least five made-up questions for evaluating the course – at least four selections from (strongly agree, agree, not agree, not available) 
+and one text area for more comments.
+
+The last page concludes the user’s information (name, gender, grade, and course), the survey results, and the a thank you.
+
+This should all be stored in a database and a report page created to output the survey results in a tabled list.
+
+Check the submitted fields for valid data, apostrophes, and such...
+
+5 surveys worth or information should be entered into the database. So take the survey to test and enter information at least 5 times. Try to break it. 
+
+The option to delete a survey should be added to each resulting row returned. So that if john Smith submits a survey, I should be able to delete John Smith's results.

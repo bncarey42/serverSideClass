@@ -1,0 +1,30 @@
+body{
+  background-color: #282828;
+  color: #ebdbb2;
+  font-family: 'Ubuntu', sans-serif;
+}
+h1{
+  color: #689d6a;
+}
+a{
+  color: #ebdbb2;
+}
+a:hover{
+  color: #458588;
+}
+.buttons input{
+  background-color: #458588;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1em;
+  color: inherit;
+  padding: 16px 32px;
+}
+.error h3{
+  color: #cc241d;
+  text-decoration: underline;
+}
+.error p{
+  text-transform: uppercase;
+}

@@ -47,3 +47,9 @@ select{
 .dpt {
   width: 25%;
 }
+.even{
+  background-color: #ebdbb2;
+}
+.odd{
+  background-color: #a89984;
+}

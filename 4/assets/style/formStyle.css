@@ -1,6 +1,7 @@
 
 form {
   font-family: 'Lato', sans-serif;
+  color: #665c54;
 }
 
 table{
@@ -10,7 +11,6 @@ table{
 input {
   background-color: #ebdbb2;
   border-color: #665c54;
-  color: #665c54;
   border-radius: 10px;
   border-width: medium;
   border-style: solid;
@@ -24,7 +24,6 @@ input {
 select{
   background-color: #ebdbb2;
   border-color: #665c54;
-  color: #665c54;
   border-radius: 10px;
   border-width: medium;
   border-style: solid;

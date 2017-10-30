@@ -21,4 +21,7 @@ function sql_error(){
     </div>";
     echo mysqli_connect_error($connection);
 }
+
+$getQuestions = "SELECT QSTNS_ONE,QSTNS_TWO,QSTNS_THREE, QSTNS_FOUR, QSTNS_FIVE FROM cjohnson_qu5773oo.BTC_QUESTIONS";
+$insertStudent = "INSERT INTO STUDENT (STDNT_STUDENT_ID, STDNT_FIRST_NAME, STDNT_LAST_NAME, STDNT_GENDER, STDNT_COHORT) VALUES '$fname' '$lname' '$course' '$cohort' '$gender'";
 ?>

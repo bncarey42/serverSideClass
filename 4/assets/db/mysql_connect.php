@@ -2,7 +2,7 @@
 $host="192.185.225.1";
 $port=3306;
 $socket="";
-$user="cjohnson_qu5773o@localhost";
+$user="cjohnson_qu5773o";
 $password="12856076bc";
 $dbname="";
 

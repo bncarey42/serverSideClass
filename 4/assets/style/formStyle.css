@@ -1,6 +1,12 @@
+
 form {
   font-family: 'Lato', sans-serif;
 }
+
+table{
+  width: 100%;
+}
+
 input {
   background-color: #ebdbb2;
   border-color: #665c54;
@@ -11,7 +17,7 @@ input {
   padding-top: 0.5em;
   padding-bottom: 0.5em;
   margin-bottom: 0.5em;
-  width:45%;
+  width: 100%;
   font-family: 'Lato', sans-serif;
   font-size: 1em;
 }
@@ -25,7 +31,7 @@ select{
   padding-top: 0.5em;
   padding-bottom: 0.5em;
   margin-bottom: 0.5em;
-  width:30%;
+  width: 100%;
   font-family: 'Lato', sans-serif;
   font-size: 1em;
 }

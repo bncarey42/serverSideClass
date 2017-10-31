@@ -4,15 +4,13 @@
   $course = $_POST['dpt'].$_POST['courseNum'];
   $cohort = $_POST['cohort'];
   $gender = $_POST['gender'];
-  
-  require ('assets/db/mysql_connect.php');
-  @mysqli_query ($connection, $insertStudent);
+
+  $results = require ('assets/db/mysql_connect.php');
+  @mysqli_query($con, $insertStudent);
 ?>
 
 <form action="" method="post">
   <?php
-
-  $results = @mysqli_query ($connection, $getQuestions);
   if($results){
     $qNum = 0;
     $row=mysqli_fetch_array($r);

@@ -5,16 +5,23 @@
     <tr>
       <th>STUDENT NAME</th><th>COURSE NUMBER</th><th>VIEW</th><th>DELETE</th>
     </tr>
-      <tr>
+
+        <form>
     <?php
+    require ('assets/db/mysql_connect.php');
+    @mysqli_query($con, $fetchServeys);
         $rowNum = 0;
     foreach($surveys as $survey){
       ?>
-        <th class=<?php echo ($rumNum%2==0) ? "even" : "odd" ?>></th>
-    }
-        <th><a href="delete.php">Delete</a></th>
+      <tr class=<?php echo ($rowNum%2==0) ? "even" : "odd" ?>>
+        <th></th><th></th><th></th><th><input type="checkbox" name="serveyToDelete" value=<?php ?>/></th>
+      </tr>
+    <?php
+  echo "</form>";
+}
+echo "
         </tr>
     </table>
-  </fieldset>
+  </fieldset>";
 
-<?php include("assets/includes/footer.php");?>
+  include("assets/includes/footer.php");?>

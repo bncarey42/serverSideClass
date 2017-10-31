@@ -1,4 +1,6 @@
-
+tr{
+  width:50%;
+}
 form {
   font-family: 'Lato', sans-serif;
   color: #665c54;
@@ -17,9 +19,10 @@ input {
   padding-top: 0.5em;
   padding-bottom: 0.5em;
   margin-bottom: 0.5em;
-  width: 100%;
+  width: 95%;
   font-family: 'Lato', sans-serif;
   font-size: 1em;
+  color: #665c54;
 }
 select{
   background-color: #ebdbb2;
@@ -30,7 +33,7 @@ select{
   padding-top: 0.5em;
   padding-bottom: 0.5em;
   margin-bottom: 0.5em;
-  width: 100%;
+  width: 95%;
   font-family: 'Lato', sans-serif;
   font-size: 1em;
 }

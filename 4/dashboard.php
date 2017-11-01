@@ -7,7 +7,7 @@
     <form>
 <?php
     require ('assets/db/mysqli_connect.php');
-    $r = @mysqli_query($con, $fetchSurveys);
+    $r = @mysqli_query($dbc, $fetchSurveys);
     $rowNum = 0;
     if($r){
       while($row = mysqli_fetch_array($r, MYSQLI_BOTH)){
@@ -16,6 +16,7 @@
           <th></th><th></th><th></th><th><input type=\"checkbox\" name=\"serveyToDelete\" value=\"\"/></th>";
           $rowClass++;
       }
+      mysqli_free_result($r);
     } else {
       for($index = 1; $index <= 10; $index++){
         $rowClass=(($index % 2==0) ? "even" : "odd");

@@ -2,7 +2,7 @@
 <form action="survey.php" method="post" id="studentInputForm">
   <table>
     <tr>
-        <th>  <label for="fname">First Name </label> </th>
+        <th><label for="fname">First Name </label></th>
         <th><label for="lname">Last Name</label></th>
     </tr>
     <tr>

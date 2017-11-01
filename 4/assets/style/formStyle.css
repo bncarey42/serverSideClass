@@ -1,3 +1,9 @@
+.even{
+  background-color: #ebdbb2;
+}
+.odd{
+  background-color: #a89984;
+}
 tr{
   width:50%;
 }
@@ -103,10 +109,4 @@ select:active {
   padding: 5px;
   padding-left: 3px;
   padding-right: 3px;
-}
-.even{
-  background-color: #ebdbb2;
-}
-.odd{
-  background-color: #a89984;
 }

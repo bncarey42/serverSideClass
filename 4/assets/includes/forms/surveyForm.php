@@ -1,30 +1,23 @@
 <?php
   $fname = $_POST['fname'];
   $lname = $_POST['lname'];
-  $course = $_POST['dpt'].$_POST['courseNum'];
+  $course = $_POST['courseDpt'].$_POST['courseNum'];
   $cohort = $_POST['cohort'];
   $gender = $_POST['gender'];
 
-  $results = require ("assets/db/mysqli_connect.php");
-  @mysqli_query($con, $insertStudent);
+echo "<form action=\"survey.php\" method=\"post\">";
+    echo "<h3>Thanks $fname $lname. Please review $course</h3>";
+    $quNum = 0;
+    $getQuestions = "SELECT QSTNS_QESTION as question FROM cjohnson_qu5773oo.BTC_QUESTIONS";
+    require ("assets/db/mysqli_connect.php");
+    $r = @mysqli_query ($dbc , $getQuestions);
+
+      while($row = mysqli_fetch_array($r, MYSQLI_both)){
+        $question = $row[0];
+        echo "<h3 class=\"question\">$qNum - $question</h3>";
+        $qNum++;
+        echo "<input type=\"range\" name=\"agree\" min=\"0\" max=\"5\">";
+        echo "<textarea name=\"comments\"/>";
+      }
+echo "</form>";
 ?>
-
-<form action="" method="post">
-  <?php
-  if($results){
-    $qNum = 0;
-    $row=mysqli_fetch_array($r);
-    foreach($row as $question){
-      echo "<h4 class=\"question\">$qNum. $question</h4>";
-      $qNum += 1;
-  ?>
-      <input type="range" name="agree" min="0" max="5">
-      <textarea name="comments"/>
-  <?php
-    }
-  } else{
-    sql_error();
-  }
-
-  ?>
-</form>

@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `cjohnson_qu5773oo`.`BTC_CLASS_MEMBERS` (
     FOREIGN KEY (`CMBR_STUDENT_ID`)
     REFERENCES `cjohnson_qu5773oo`.`BTC_STUDENT` (`STDNT_STUDENT_ID`));
   
-  CREATE TABLE `cjohnson_qu5773oo`.`BTC_SURVEY` (
+CREATE TABLE `cjohnson_qu5773oo`.`BTC_SURVEY` (
   `SRVY_ID` INT UNIQUE NOT NULL auto_increment,
   `SRVY_ANSWER_ONE` INT NULL DEFAULT NULL,
   `SRVY_COMMENT_ONE` VARCHAR(250) NULL DEFAULT NULL,
@@ -48,12 +48,6 @@ CREATE TABLE IF NOT EXISTS `cjohnson_qu5773oo`.`BTC_CLASS_MEMBERS` (
     REFERENCES `cjohnson_qu5773oo`.`BTC_QUESTIONS` (`QSTNS_ID`));
     
 CREATE TABLE `cjohnson_qu5773oo`.`BTC_QUESTIONS` (
-	`QSTNS_ID` INT NOT NULL unique auto_increment,
-    `QSTNS_ONE` varchar(150) NOT NULL default 'The material covered was relevent to the topic of the course.',
-    `QSTNS_TWO` varchar(150) NOT NULL default 'The course was well organized and the sequence of the material covered enabled understanding.',
-    `QSTNS_THREE` varchar(150) NOT NULL default 'The professor was able to present the material covered in a way that was accessable by all studenets in the course.',
-    `QSTNS_FOUR` varchar(150) NOT NULL default 'The professor was accessable for questions.',
-    `QSTNS_FIVE` varchar(150) NOT NULL default 'I would recomend this course to to a fellow student.',
-	PRIMARY KEY (`QSTNS_ID`)
+	`QSTNS_QESTION` VARCHAR(150) NOT NULL
     );
 INSERT INTO `cjohnson_qu5773oo`.`BTC_QUESTIONS` SET `QSTNS_ID`=1;

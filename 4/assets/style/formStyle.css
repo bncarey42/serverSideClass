@@ -36,6 +36,63 @@ select{
   width: 95%;
   font-family: 'Lato', sans-serif;
   font-size: 1em;
+  color: #665c54;
+}
+input:enabled {
+  background-color: #ebdbb2;
+  border-color: #665c54;
+  border-radius: 10px;
+  border-width: medium;
+  border-style: solid;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  margin-bottom: 0.5em;
+  width: 95%;
+  font-family: 'Lato', sans-serif;
+  font-size: 1em;
+  color: #665c54;
+}
+select:enabled {
+  background-color: #ebdbb2;
+  border-color: #665c54;
+  border-radius: 10px;
+  border-width: medium;
+  border-style: solid;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  margin-bottom: 0.5em;
+  width: 95%;
+  font-family: 'Lato', sans-serif;
+  font-size: 1em;
+  color: #665c54;
+}
+input:active {
+  background-color: #ebdbb2;
+  border-color: #665c54;
+  border-radius: 10px;
+  border-width: medium;
+  border-style: solid;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  margin-bottom: 0.5em;
+  width: 95%;
+  font-family: 'Lato', sans-serif;
+  font-size: 1em;
+  color: #665c54;
+}
+select:active {
+  background-color: #ebdbb2;
+  border-color: #665c54;
+  border-radius: 10px;
+  border-width: medium;
+  border-style: solid;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  margin-bottom: 0.5em;
+  width: 95%;
+  font-family: 'Lato', sans-serif;
+  font-size: 1em;
+  color: #665c54;
 }
 .buttons input{
   background-color: #427b58;
@@ -46,9 +103,6 @@ select{
   padding: 5px;
   padding-left: 3px;
   padding-right: 3px;
-}
-.dpt {
-  width: 25%;
 }
 .even{
   background-color: #ebdbb2;

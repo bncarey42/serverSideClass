@@ -1,11 +1,10 @@
 <?php
-$host="192.185.225.1";
-$user="cjohnson_qu5773o";
-$password="12856076bc";
+$mysql_host='192.185.225.1';
+$mysql_user='cjohnson_qu5773o';
+$mysql_password='12856076bc';
+$mysql_database='cjohnson_qu5773oo';
 
-$con = mysqli_connect($host, $user, $password)
-	or die ('Could not connect to the database server' . mysqli_connect_error());
+$dbc = @mysqli_connect($mysql_host, $mysql_user, $mysql_password, $mysql_database);
+#	  OR die ('Could not connect to the database server' . mysqli_connect_error());
 
-//$con->close();
-?>
 //$con->close();

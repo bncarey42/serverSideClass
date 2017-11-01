@@ -5,7 +5,7 @@
   $cohort = $_POST['cohort'];
   $gender = $_POST['gender'];
 
-  $results = require ('assets/db/mysql_connect.php');
+  $results = require ("assets/db/mysqli_connect.php");
   @mysqli_query($con, $insertStudent);
 ?>
 

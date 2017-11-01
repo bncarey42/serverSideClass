@@ -1,5 +1,6 @@
 <?php
-  $fetchSurveys = "SELECT student.*, class.*, survey_result.*
+  $getQuestions = "SELECT QSTNS_QESTION as question FROM cjohnson_qu5773oo.BTC_QUESTIONS";
+  $fetchSurveys = "SELECT survey_result.*, student.*, class.*
                 FROM cjohnson_qu5773oo.BTC_Surveys survey_results
                 JOIN BTC_CLASS_MEMBERS mbrs on survey_results.srvy_cmbr_id = mbrs.cmbr_id
                 JOIN BTC_STUDENT student on student.STDNT_STUDENT_ID = mbrs.CMBR_STUDENT_ID

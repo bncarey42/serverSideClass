@@ -5,19 +5,23 @@
   $cohort = $_POST['cohort'];
   $gender = $_POST['gender'];
 
-echo "<form action=\"survey.php\" method=\"post\">";
+
     echo "<h3>Thanks $fname $lname. Please review $course</h3>";
     $quNum = 0;
-    $getQuestions = "SELECT QSTNS_QESTION as question FROM cjohnson_qu5773oo.BTC_QUESTIONS";
-    require ("assets/db/mysqli_connect.php");
-    $r = @mysqli_query ($dbc , $getQuestions);
 
-      while($row = mysqli_fetch_array($r, MYSQLI_both)){
-        $question = $row[0];
+    require ("assets/db/mysqli_connect.php");
+    $r = @mysqli_query($dbc , $getQuestions);
+    if($r){
+      while($row = mysqli_fetch_array($r, MYSQLI_BOTH)){
+        echo "<form action=\"survey.php\" method=\"post\">";
+        $question = $row[1];
         echo "<h3 class=\"question\">$qNum - $question</h3>";
         $qNum++;
         echo "<input type=\"range\" name=\"agree\" min=\"0\" max=\"5\">";
         echo "<textarea name=\"comments\"/>";
       }
-echo "</form>";
+    } else {
+      echo "Error getting form, sorry.";
+    }
+    echo "</form>";
 ?>

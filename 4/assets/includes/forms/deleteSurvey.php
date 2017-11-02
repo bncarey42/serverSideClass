@@ -11,6 +11,5 @@
         echo "Error deleting ";
       }
   }
-
-  header(dashboard.php);
+  mysqli_free_result($r);
 ?>

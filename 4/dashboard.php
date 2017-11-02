@@ -3,17 +3,7 @@
 $surveyIDsToDelete = $_POST['surveyID'];
 
 if(isset($surveyIDsToDelete)){
-$deleteSurvey = "DELETE FROM cjohnson_qu5773oo.BTC_SURVEY WHERE SRVY_ID = $surveyIDToDelete";
-
-require ('assets/db/mysqli_connect.php');
-  foreach ($surveyIDsToDelete as $surveyIDToDelete) {
-    $r = @mysqli_query($dbc, $deleteSurvey);
-    if(mysqli_affected_rows($dbc) == 1){
-      echo "Survey deleted";
-    } else {
-      echo sql_error("Error deleting survey");
-    }
-  }
+  include("assets/includes/forms/deleteSurvey.php");
 }
 ?>
 <fieldset class="surveyResults">

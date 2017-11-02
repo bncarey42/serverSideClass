@@ -8,7 +8,7 @@ DEFINE('DB_PASSWORD', '12856076bc');
 $mysql_database=
 DEFINE('DB_NAME', 'cjohnson_qu5773oo');
 
-$dbc = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD,DB_NAME)#$mysql_host, $mysql_user, $mysql_password, $mysql_database)
-	  OR die ('Could not connect to the database server' . mysqli_connect_error());
+$dbc = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD,DB_NAME);
+	  //OR die ('Could not connect to the database server' . mysqli_connect_error());
 
 //$con->close();

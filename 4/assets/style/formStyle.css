@@ -15,7 +15,11 @@ form {
 table{
   width: 100%;
 }
-
+.surveyResults th{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 1em;
+}
 input {
   background-color: #ebdbb2;
   border-color: #665c54;

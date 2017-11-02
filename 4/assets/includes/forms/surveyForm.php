@@ -8,6 +8,7 @@
     $quNum = 0;
 
     require ("assets/db/mysqli_connect.php");
+    $getQuestions = "SELECT QSTNS_QESTION as question FROM cjohnson_qu5773oo.BTC_QUESTIONS";
     $r = @mysqli_query($dbc , $getQuestions);
     if($r){
       while($row = mysqli_fetch_array($r, MYSQLI_BOTH)){

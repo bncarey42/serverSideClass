@@ -9,7 +9,8 @@
     "style.css",
     "headerStyle.css",
     "formStyle.css",
-    "footerStyle.css"
+    "footerStyle.css",
+    "dashboard.css"
   );
 
 function sql_error(){

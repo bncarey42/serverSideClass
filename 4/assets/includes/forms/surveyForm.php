@@ -12,7 +12,7 @@
     if($r){
       while($row = mysqli_fetch_array($r, MYSQLI_BOTH)){
         echo "<form action=\"survey.php\" method=\"post\">";
-        $question = $row;
+        $question = $row[0];
         echo "<h3 class=\"question\">$qNum - $question</h3>";
         $qNum++;
         echo "<input type=\"range\" name=\"agree\" min=\"0\" max=\"5\">";

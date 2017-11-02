@@ -22,6 +22,7 @@
     } else {
       echo "Error getting form, sorry.";
     }
-    echo "<input type=\"submit\" class=\"button\"/>";
-    echo "</form>";
+    echo "<input type=\"submit\" class=\"button\"/>
+    </form>";
+
 ?>

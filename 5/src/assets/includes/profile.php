@@ -6,7 +6,7 @@
   }
 
 ?>
-<fieldset class="surveyResults">
+<fieldset>
   <table>
     <form action="assets/forms/updateMadLib.php" method="post">
     <?php

@@ -1,7 +1,5 @@
 <?php
-  include("globalVars.php");
-
-
+  include('assets/includes/globalVars.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,14 +19,13 @@
                 <h1>Welcome to MADLIBS</h1>
           <div class="navMenu">
               <ul>
-
                 <?php
                 if($loggedOn){
                   foreach ($pageFiles as $page => $file){
                     echo "<a href=\"$file\"><li>$page</li></a>";
                   }
                 }
-                 ?>
+                ?>
 
               </ul>
           </div>

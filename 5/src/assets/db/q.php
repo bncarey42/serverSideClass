@@ -3,7 +3,7 @@ function userExists($email) {
   $findUserByEmail = "SELECT USR_EMAIL FROM cjohnson_qu5773oo.User WHERE USR_EMAIL=\'$email\'";
   $exists = false;
   require ('mysqli_connect.php');
-  
+
 
   $r = @mysqli_query($dbc, $findUserByEmail);
   $exists = $r;
@@ -24,37 +24,12 @@ function isCorectPassword($email, $passwd){
   }
 }
 
-function getUIDbyEmail($email){
-  $selectUIDByEmail = "SELECT USR_ID as id FROM cjohnson_qu5773oo.User WHERE USR_EMAIL=\'$email\'";
-  require ('mysqli_connect.php');
-  $id="";
-  $r = @mysqli_query($dbc, $selectUIDByEmail);
-  if($r){
-      $row=mysqli_fetch_array($r, MYSQLI_BOTH)
-      $id=$row['id'];
-    }
-    return $id;
-  }
-}
 
-function getUserNameByUID($uid){
-  $selectUserNameByUid="SELECT USR_FIRST_NAME as fname, USR_LAST_NAME as lname FROM cjohnson_qu5773oo.User WHERE USR_ID=$uid";
-  $fname="";
-  $lname="";
-  require ('mysqli_connect.php');
-  $r = @mysqli_query($dbc, $selectUserNameByUid);
-  if($r){
-    while($row=mysqli_fetch_array($r, MYSQLI_BOTH)){
-      $fname=$row['fname'];
-      $lname=$row['lname'];
-    }  
-    return $fname." ".$lname;
-  }
-}
+
 
 function getMadLibsForUser($userID){
  $madLib = array();
-  $getMadLibByID = "SELECT  FROM cjohnson_qu5773oo WHERE MadLib_ID = \'$userID\'";
+  $getMadLibByID = "SELECT MadLib_ID as mlid, noun_one as noun_one FROM cjohnson_qu5773oo WHERE MadLib_ID = \'$userID\'";
   require ('mysqli_connect.php');
   $r = @mysqli_query($dbc, $getMadLibByID);
   if($r){
@@ -66,11 +41,7 @@ function getMadLibsForUser($userID){
    return $madLib;
 }
 
-function deleteMadLib($mlid){
-
-}
-
-fuction getMadLib($mlid){
+function getMadLib($mlid){
   $madLib = array();
   $getMadLibByID = "SELECT * FROM cjohnson_qu5773oo WHERE MadLib_ID = \'$mlid\'";
   require ('mysqli_connect.php');
@@ -84,13 +55,5 @@ fuction getMadLib($mlid){
    return $madLib;
 }
 
-function createUser($email, $passwd, $fname, $lname){
-  $createUser="INSERT into cjohnson_qu5773oo.User(USR_EMAIL, USR_PASSWORD, USR_FIRST_NAME, USR_LAST_NAME) VALUES ($email, $passwd, $fname, $lname)";
-  require ('mysqli_connect.php');
-  $r = @mysqli_query($dbc, $insertStudent);
-  
-  if($r){
-    $loggedOn = true; 
-  }
-  return $r;
+
 ?>

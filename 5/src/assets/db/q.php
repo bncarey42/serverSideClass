@@ -1,11 +1,10 @@
 <?php
-$qFindUserByEmail = "SELECT USR_EMAIL FROM cjohnson_qu5773oo.User WHERE USR_EMAIL= ";
-$qselectPasswordForUserByEmail = "SELECT USR_PASSWORD as password FROM cjohnson_qu5773oo.User WHERE USR_EMAIL= ";
-
 function userExists($email) {
   $exists = false;
   require ('mysqli_connect.php');
-  $r = @mysqli_query($dbc, $qFindUserByEmail.$email);
+  $findUserByEmail = "SELECT USR_EMAIL FROM cjohnson_qu5773oo.User WHERE USR_EMAIL=\'$email\'";
+
+  $r = @mysqli_query($dbc, $findUserByEmail);
   $exists = $r
   return $exists
 }
@@ -13,16 +12,31 @@ function userExists($email) {
 function isCorectPassword($email, $passwd){
 $correct = false;
   require ('mysqli_connect.php');
-  $r = @mysqli_query($dbc, $qselectPasswordForUserByEmail.$email);
+  $selectPasswordForUserByEmail = "SELECT USR_PASSWORD as password FROM cjohnson_qu5773oo.User WHERE USR_EMAIL=\'$email\'";
+  $r = @mysqli_query($dbc, $selectPasswordForUserByEmail);
   if($r){
     while($row = mysqli_fetch_array($r, MYSQLI_BOTH)){
       if($passwd = row['password']){
         $loggedOn=true;
       }
     }
+  }
 }
 
+function getMadLibsForUser($userID){\
+}
 
+function deleteMadLib($mlid){
 
+}
 
+fuction getMadLib($mlid){
+
+}
+
+function createUser($email, $passwd, $fname, $lname){
+  $createUser="INSERT into cjohnson_qu5773oo.User(USR_EMAIL, USR_PASSWORD, USR_FIRST_NAME, USR_LAST_NAME) VALUES ($email, $passwd, $fname, $lname)";
+  require ('mysqli_connect.php');
+    
+}
 ?>

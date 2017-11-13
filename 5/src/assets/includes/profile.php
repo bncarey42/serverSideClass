@@ -14,6 +14,7 @@
   <table>
     <form action="assets/forms/updateMadLib.php" method="post">
     <?php
+       $usersMadLibs = <<<<<>>>>>>();
        for($i=0; $i<; i++){
         $rowClass=(($i%2==0) ? "even" : "odd");
           echo"

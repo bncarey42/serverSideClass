@@ -1,5 +1,12 @@
 <?php
 $loggedOn=false;
 $styleFiles = array('style','form' );
-$pageFiles = array('Profile'=>'userProfile.php', 'MadLib'=> 'madLib.php' );
+$pageFiles = array('Profile'=>'profile.php', 'MadLib'=> 'madLib.php' );
+
+
+include('assets/db/p.php');
+function isLoggedOn($email, $passwd){
+  
+}
+
 ?>

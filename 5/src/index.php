@@ -1,9 +1,9 @@
 <?php
 include('assets/includes/header.php');
-if($loggedIn){
-  include('userProfile.php');
+if($loggedOn){
+  include('assets/includes/profile.php');
 } else {
-  include('login.html');
+  include('assets/includes/login.html');
 }
 include('assets/includes/footer.php');
 ?>

@@ -1,9 +1,11 @@
 <?php
-$userName=$_POST('userName');
+$email=$_POST('email');
 $passwd=$_POST('passwd');
 
-require();
-
-
-
+$isLoggedOn = isLoggedOn($email, $passwd);
+ if($isLoggedOn){
+   include('../includes/profile.php');
+ } else {
+   include 'createUser.php';
+ }
  ?>

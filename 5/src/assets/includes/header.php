@@ -23,11 +23,13 @@
               <ul>
 
                 <?php
+                if($loggedOn){
                   foreach ($pageFiles as $page => $file){
                     echo "<a href=\"$file\"><li>$page</li></a>";
                   }
+                }
                  ?>
-                
+
               </ul>
           </div>
         </header>

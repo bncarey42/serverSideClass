@@ -29,7 +29,7 @@
           <th>No MadLibs found for this user</th>
           </tr>";
       ?>
-      <input type="submit" name="updateMadLib" value="View" />
+      <input type="submit" name="updateMadLib" value="View MadLib" />
       <input type="submit" name="updateMadLib" value="Delete" />
     </form>
   </table>

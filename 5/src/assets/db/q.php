@@ -1,8 +1,9 @@
 <?php
 function userExists($email) {
+  $findUserByEmail = "SELECT USR_EMAIL FROM cjohnson_qu5773oo.User WHERE USR_EMAIL=\'$email\'";
   $exists = false;
   require ('mysqli_connect.php');
-  $findUserByEmail = "SELECT USR_EMAIL FROM cjohnson_qu5773oo.User WHERE USR_EMAIL=\'$email\'";
+  
 
   $r = @mysqli_query($dbc, $findUserByEmail);
   $exists = $r;
@@ -10,9 +11,9 @@ function userExists($email) {
 }
 
 function isCorectPassword($email, $passwd){
+  $selectPasswordForUserByEmail = "SELECT USR_PASSWORD as password FROM cjohnson_qu5773oo.User WHERE USR_EMAIL=\'$email\'";
   $correct = false;
   require ('mysqli_connect.php');
-  $selectPasswordForUserByEmail = "SELECT USR_PASSWORD as password FROM cjohnson_qu5773oo.User WHERE USR_EMAIL=\'$email\'";
   $r = @mysqli_query($dbc, $selectPasswordForUserByEmail);
   if($r){
     while($row = mysqli_fetch_array($r, MYSQLI_BOTH)){
@@ -24,13 +25,25 @@ function isCorectPassword($email, $passwd){
 }
 
 function getUIDbyEmail($email){
-  require ('mysqli_connect.php');
   $selectUIDByEmail = "SELECT USR_ID as id FROM cjohnson_qu5773oo.User WHERE USR_EMAIL=\'$email\'";
+  require ('mysqli_connect.php');
+  
   $r = @mysqli_query($dbc, $selectUIDByEmail);
   if($r){
     while($row=mysqli_fetch_array($r, MYSQLI_BOTH)){
       return $row['id'];
     }
+  }
+}
+
+function getUserNameByUID($uid){
+  $selectUserNameByUid="SELECT USR_FIRST_NAME as fname, USR_LAST_NAME as lname FROM cjohnson_qu5773oo.User WHERE USR_ID=$uid";
+  require ('mysqli_connect.php');
+  $r = @mysqli_query($dbc, $selectUserNameByUid);
+  if($r){
+    while($row=mysqli_fetch_array($r, MYSQLI_BOTH)){
+      return $fname." ".$lname;
+    }  
   }
 }
 

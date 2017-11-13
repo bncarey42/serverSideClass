@@ -6,5 +6,6 @@ $email = $_POST('email');
   <input type="text" name="lname"/>
   <input type="email" name="email" value="<?php echo "$email"; ?>" />
   <input type="password" name="passwd" />
+  <input type="submit" value="Create User" name="createUser" />
 </form>
 ?>

@@ -1,3 +1,4 @@
+<?php
 $email = $_POST('email')
 $passwd=$_POST('passwd');
 ?>
@@ -7,4 +8,4 @@ $passwd=$_POST('passwd');
   <input type="email" name="email" value="<?php echo "$email"; ?>" />
   <input type="password" name="passwd" />
 </form>
-
+?>

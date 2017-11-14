@@ -2,12 +2,15 @@
   $newMadLib = $_POST['saveMadLib'];
 
   if(isset($newMadLib) && $newMadLib=="Save MadLib"){
-    //new_entry()
+    new_entry()
     echo "lets go!";
   }
 ?>
 <h3>
-  <?php  echo "Hello $userName"?>
+  <?php  
+  $userName=getUserNameByUID($uid);
+  echo "Hello $userName"
+  ?>
 </h3>
 <form action="assets/forms/updateMadLib.php" method="post">
   <input type="submit" value="New madLib" name="newMadLib" />
@@ -39,6 +42,8 @@
           <th>No MadLibs found for this user</th>
           </tr>";
       }
+	  mysqli_free_result($r);
+	   
       ?>
       <input type="submit" name="updateMadLib" value="View MadLib" />
       <input type="submit" name="updateMadLib" value="Delete" />
@@ -46,6 +51,9 @@
   </table>
 </feildset>
 </form>
+
+
+
 
 <?php function getUserNameByUID($uid){
   $selectUserNameByUid="SELECT USR_FIRST_NAME as fname, USR_LAST_NAME as lname FROM cjohnson_qu5773oo.User WHERE USR_ID=$uid";
@@ -58,7 +66,10 @@
       $fname=$row['fname'];
       $lname=$row['lname'];
     }
+	mysqli_free_result($r);
     return $fname." ".$lname;
   }
 }
-$userName=getUserNameByUID($uid); ?>
+?>
+
+

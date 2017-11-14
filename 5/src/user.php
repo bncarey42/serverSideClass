@@ -4,6 +4,8 @@ if(isset($_POST['createUser']) && $_POST['createUser'] == "Create User") {
   $passwd=$_POST['passwd'];
   $firstName=$_POST['fName'];
   $lastName=$_POST['lName'];
+  
+  new_user($email, $passwd, $firstName, $lastName);
   }
   if(createUser($email, $passwd, $firstName, $lastName)){
     function getUIDbyEmail($email){
@@ -15,9 +17,10 @@ if(isset($_POST['createUser']) && $_POST['createUser'] == "Create User") {
           while($row=mysqli_fetch_array($r, MYSQLI_BOTH)){
           $currentUID=$row['id'];
         }
-        }
       }
-    }
+		mysqli_free_result($r);
+	  }
+	}
 
 if($loggedOn){
   include('assets/forms/profile.php');

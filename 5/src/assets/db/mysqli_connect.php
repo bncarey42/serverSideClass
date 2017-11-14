@@ -1,6 +1,6 @@
 <?php
 $mysql_host=
-DEFINE('DB_HOST', '192.185.225.1');
+DEFINE('DB_HOST', 'localhost');
 $mysql_user=
 DEFINE('DB_USER', 'cjohnson_qu5773o');
 $mysql_password=

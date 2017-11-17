@@ -1,30 +1,4 @@
 <?php
-function userExists($email) {
-  $findUserByEmail = "SELECT USR_EMAIL FROM cjohnson_qu5773oo.User WHERE USR_EMAIL=\'$email\'";
-  $exists = false;
-  require ('mysqli_connect.php');
-
-
-  $r = @mysqli_query($dbc, $findUserByEmail);
-  $exists = $r;
-  return $exists;
-}
-
-function isCorectPassword($email, $passwd){
-  $selectPasswordForUserByEmail = "SELECT USR_PASSWORD as password FROM cjohnson_qu5773oo.User WHERE USR_EMAIL=\'$email\'";
-  $correct = false;
-  require ('mysqli_connect.php');
-  $r = @mysqli_query($dbc, $selectPasswordForUserByEmail);
-  if($r){
-    while($row = mysqli_fetch_array($r, MYSQLI_BOTH)){
-      if($passwd = $row['password']){
-        $loggedOn=true;
-      }
-    }
-  }
-}
-
-
 function getMadLib($mlid){
   $madLib = array();
   $getMadLibByID = "SELECT * FROM cjohnson_qu5773oo WHERE MadLib_ID = \'$mlid\'";
@@ -52,8 +26,4 @@ function getMadLibsForUser($userID){
   }
    return $madLib;
 }
-
-
-
-
 ?>

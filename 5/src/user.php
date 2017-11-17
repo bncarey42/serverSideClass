@@ -5,6 +5,7 @@ if(isset($_POST['createUser']) && $_POST['createUser'] == "Create User") {
   $firstName=$_POST['fName'];
   $lastName=$_POST['lName'];
 
+  $isLoggedOn = isLoggedOn($email, $passwd);
   new_user($email, $passwd, $firstName, $lastName);
   }
 

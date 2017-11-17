@@ -1,5 +1,5 @@
 <?php
-$email = $_POST('email');
+$email = $_POST['email'];
 ?>
 <form action="user.php" method="post">
   <input type="text" name="fName"/>
@@ -8,4 +8,3 @@ $email = $_POST('email');
   <input type="password" name="passwd" />
   <input type="submit" value="Create User" name="createUser" />
 </form>
-?>

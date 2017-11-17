@@ -2,12 +2,12 @@
   $newMadLib = $_POST['saveMadLib'];
 
   if(isset($newMadLib) && $newMadLib=="Save MadLib"){
-    new_entry()
+    new_entry();
     echo "lets go!";
   }
 ?>
 <h3>
-  <?php  
+  <?php
   $userName=getUserNameByUID($uid);
   echo "Hello $userName"
   ?>
@@ -43,7 +43,7 @@
           </tr>";
       }
 	  mysqli_free_result($r);
-	   
+
       ?>
       <input type="submit" name="updateMadLib" value="View MadLib" />
       <input type="submit" name="updateMadLib" value="Delete" />
@@ -51,8 +51,6 @@
   </table>
 </feildset>
 </form>
-
-
 
 
 <?php function getUserNameByUID($uid){
@@ -71,5 +69,3 @@
   }
 }
 ?>
-
-

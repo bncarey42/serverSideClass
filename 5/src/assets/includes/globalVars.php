@@ -9,7 +9,7 @@
 
 
 function createUser($email, $passwd, $fname, $lname){
-  $createUser="INSERT into cjohnson_qu5773oo.User(USR_EMAIL, USR_PASSWORD, USR_FIRST_NAME, USR_LAST_NAME) VALUES ($email, $passwd, $fname, $lname)";
+  $createUser="INSERT into cjohnson_qu5773oo.User(USR_EMAIL, USR_PASSWORD, USR_FIRST_NAME, USR_LAST_NAME) VALUES (\'$email\', \'$passwd\', \'$fname\', \'$lname\')";
   require ('assets/db/mysqli_connect.php');
   $r = @mysqli_query($dbc, $createUser);
   if($r){
@@ -33,9 +33,10 @@ function logIn($email){
   if($r){
       while($row=mysqli_fetch_array($r, MYSQLI_BOTH)){
       $currentUID=$row['id'];
-        $loggedOn=true;
+
     }
   }
+  $loggedOn=true;
     mysqli_close($dbc);
 
 }

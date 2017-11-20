@@ -1,14 +1,28 @@
 <?php
-$plural_noun_one = $_POST['plural_noun_one'];
-$plural_noun_two = $_POST['plural_noun_two'];
-$noun_one = $_POST['noun_one'];
-$adjective_two = $_POST['adjective_two'];
-$adjective_three = $_POST['adjective_three'];
-$verb = $_POST['verb'];
-$body_part = $_POST['body_part'];
-$adjective_four = $_POST['adjective_four'];
-$number = $_POST['number'];
-$noun_two = $_POST['noun_two'];
+$updateMadLib = $_POST['updateMadLib'];
+
+switch ($updateMadLib) {
+  case 'View MadLib':
+    # code...
+    break;
+  case 'Delete'
+    echo "<h3>While we delete your MadLib here it is one last time before it is deleted forever.</h3>";
+    
+    break;
+  default:
+    $plural_noun_one = $_POST['plural_noun_one'];
+    $plural_noun_two = $_POST['plural_noun_two'];
+    $noun_one =        $_POST['noun_one'];
+    $adjective_two =   $_POST['adjective_two'];
+    $adjective_three = $_POST['adjective_three'];
+    $verb =            $_POST['verb'];
+    $body_part =       $_POST['body_part'];
+    $adjective_four =  $_POST['adjective_four'];
+    $number =          $_POST['number'];
+    $noun_two =        $_POST['noun_two'];
+    break;
+}
+
 ?>
 <p>
 <h3>Jack and the <?php echo "$noun_one;"; ?></h3>
@@ -21,7 +35,7 @@ $noun_two = $_POST['noun_two'];
   Englishman.\" The $adjective_four giant chased him down the beanstalk, which Jack cut with an ax. Luckily, jack
   stole the giant's goose that laid $number golden $noun_two for him and his mother.";
   ?>
-  <form action="profile.php" method="post">
+  <form action="user.php" method="post">
     <input type="text" value="$plural_noun_one" hidden="hidden" />
     <input type="text" value="$plural_noun_two" hidden="hidden" />
     <input type="text" value="$noun_one" hidden="hidden" />
@@ -30,7 +44,7 @@ $noun_two = $_POST['noun_two'];
     <input type="text" value="$verb" hidden="hidden" />
     <input type="text" value="$body_part" hidden="hidden" />
     <input type="text" value="$adjective_four " hidden="hidden" />
-    <input type="submit" value="Save MadLib" name="saveMadLib"/>
-    <input type="submit" value="Don't Save MadLib" name="saveMadLib"/>
+    <input type="submit" value="Save MadLib" name="action"/>
+    <input type="submit" value="Don't Save MadLib" />
   </form>
 </p>

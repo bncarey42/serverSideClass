@@ -1,44 +1,40 @@
 <?php include('assets/includes/header.php');
-if(isset($_POST['createUser']) && $_POST['createUser'] == "Create User") {
-  $email=$_POST['email'];
-  $passwd=$_POST['passwd'];
-  $firstName=$_POST['fName'];
-  $lastName=$_POST['lName'];
+//Create New User
+$action = $_POST['action'];
 
-  $isLoggedOn = isLoggedOn($email, $passwd);
-  new_user($email, $passwd, $firstName, $lastName);
-  }
+switch ($action) {
+  case 'Create User':
+    $email=$_POST['email'];
+    $passwd=$_POST['passwd'];
+    $firstName=$_POST['fName'];
+    $lastName=$_POST['lName'];
 
-  if(createUser($email, $passwd, $firstName, $lastName)){
-    function getUIDbyEmail($email){
-      $selectUIDByEmail = "SELECT USR_ID as id FROM cjohnson_qu5773oo.User WHERE USR_EMAIL=\'$email\'";
-        require ('assets/db/mysqli_connect.php');
+    createUser($email, $passwd, $firstName, $lastName);
+    logIn();
+    break;
+  case 'Log In':
+    $email=$_POST['email'];
+    $passwd=$_POST['passwd'];
 
-      $r = @mysqli_query($dbc, $selectUIDByEmail);
-      if($r){
-          while($row=mysqli_fetch_array($r, MYSQLI_BOTH)){
-          $currentUID=$row['id'];
-        }
-      }
-		mysqli_free_result($r);
-  }
+    $userExists = userExists($email, $passwd);
+    $passwordIsCorrect = $isCorectPassword($email, $passwd);
+    if($userExists && $passwordIsCorrect){
+      logIn($email);
+    }
+    break;
+  case 'Save MadLib':
+    insertNewMadLib($_POST['plural_noun_one'], $_POST['plural_noun_two'],
+      $_POST['noun_one'], $_POST['adjective_two'], $_POST['adjective_three'],
+      $_POST['verb'], $_POST['body_part'], $_POST['adjective_four'],
+      $_POST['number'], $_POST['noun_two'])
 }
 
 if($loggedOn){
   include('assets/forms/profile.php');
-} else {
+} else if(){
   include('assets/forms/createUser.php');
+} else {
+
 }
 include('assets/includes/footer.php');
-
-
-function createUser($email, $passwd, $fname, $lname){
-  $createUser="INSERT into cjohnson_qu5773oo.User(USR_EMAIL, USR_PASSWORD, USR_FIRST_NAME, USR_LAST_NAME) VALUES ($email, $passwd, $fname, $lname)";
-  require ('assets/db/mysqli_connect.php');
-  $r = @mysqli_query($dbc, $insertStudent);
-  if($r){
-    $loggedOn = true;
-  }
-  return $r;
-}
 ?>

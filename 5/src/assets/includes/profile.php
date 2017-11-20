@@ -12,7 +12,7 @@
   echo "Hello $userName"
   ?>
 </h3>
-<form action="assets/forms/updateMadLib.php" method="post">
+<form action="madLib.php" method="post">
   <input type="submit" value="New madLib" name="newMadLib" />
   <fieldset class="surveyResults">
   <table>
@@ -30,7 +30,7 @@
           echo"
             <tr class=\"$rowClass\">
               <th>
-                <input type=\"radio\" name=\"mlid\" value=\"$mlid\" hidden \>
+                <input type=\"radio\" name=\"mlid\" value=\"$mlid\" hidden\>
                   <input type=\"radio\" />
                 </th>
               <th>Jack and the $noun</th>
@@ -51,21 +51,3 @@
   </table>
 </feildset>
 </form>
-
-
-<?php function getUserNameByUID($uid){
-  $selectUserNameByUid="SELECT USR_FIRST_NAME as fname, USR_LAST_NAME as lname FROM cjohnson_qu5773oo.User WHERE USR_ID=$uid";
-  $fname="";
-  $lname="";
-  require ('assets/db/mysqli_connect.php');
-  $r = @mysqli_query($dbc, $selectUserNameByUid);
-  if($r){
-    while($row=mysqli_fetch_array($r, MYSQLI_BOTH)){
-      $fname=$row['fname'];
-      $lname=$row['lname'];
-    }
-	mysqli_free_result($r);
-    return $fname." ".$lname;
-  }
-}
-?>

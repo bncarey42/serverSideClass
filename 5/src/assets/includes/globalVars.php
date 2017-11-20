@@ -1,34 +1,49 @@
 <?php
   include('assets/db/q.php');
-  $loggedOn=false;
+
+
+  $ERROR_MSG = "";
   $styleFiles = array('style','form' );
   $pageFiles = array('Profile'=>'profile.php', 'MadLib'=> 'madLib.php' );
   $currentUID=0;
 
 
-function new_user($e, $p, $f, $l) {
-	$createUser = "INSERT INTO cjohnson_qu5773oo.User(usr_email, usr_password, usr_first_name, usr_last_name) values ($e, SHA1($p), $f, $l)";
-	require ('assets/db/mysqli_connect.php');
-    $r = @mysqli_query($dbc, $createUser);
-	if($r){
-
-	}
+function createUser($email, $passwd, $fname, $lname){
+  $createUser="INSERT into cjohnson_qu5773oo.User(USR_EMAIL, USR_PASSWORD, USR_FIRST_NAME, USR_LAST_NAME) VALUES ($email, $passwd, $fname, $lname)";
+  require ('assets/db/mysqli_connect.php');
+  $r = @mysqli_query($dbc, $insertStudent);
+  if($r){
+    $loggedOn = true;
+  }
+  mysqli_free_result($r);
+  return true;
 }
 
-function isLoggedOn($email, $passwd){
-  if(userExists($email) && isCorectPassword($email, $passwd)){
+function isLoggedOn(){
+  if($currentUID!=0){
     return true;
   }
 }
 
-function new_entry(){
+function logIn($email){
+  $selectUIDByEmail = "SELECT USR_ID as id FROM cjohnson_qu5773oo.User WHERE USR_EMAIL=\'$email\'";
+    require ('assets/db/mysqli_connect.php');
+
+  $r = @mysqli_query($dbc, $selectUIDByEmail);
+  if($r){
+      while($row=mysqli_fetch_array($r, MYSQLI_BOTH)){
+      $currentUID=$row['id'];
+        $loggedOn=true;
+    }
+  }
+    mysqli_free_result($r);
 
 }
 
 function userExists($email) {
   $findUserByEmail = "SELECT USR_EMAIL FROM cjohnson_qu5773oo.User WHERE USR_EMAIL=\'$email\'";
   $exists = false;
-  require ('mysqli_connect.php');
+  require ('assets/db/mysqli_connect.php');
   $r = @mysqli_query($dbc, $findUserByEmail);
   $exists = $r;
   return $exists;
@@ -37,7 +52,7 @@ function userExists($email) {
 function isCorectPassword($email, $passwd){
   $selectPasswordForUserByEmail = "SELECT USR_PASSWORD as password FROM cjohnson_qu5773oo.User WHERE USR_EMAIL=\'$email\'";
   $correct = false;
-  require ('mysqli_connect.php');
+  require ('assets/db/mysqli_connect.php');
   $r = @mysqli_query($dbc, $selectPasswordForUserByEmail);
   if($r){
     while($row = mysqli_fetch_array($r, MYSQLI_BOTH)){
@@ -46,5 +61,7 @@ function isCorectPassword($email, $passwd){
       }
     }
   }
+  mysqli_free_result($r);
 }
+
 ?>

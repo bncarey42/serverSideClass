@@ -13,12 +13,12 @@
   ?>
 </h3>
 <form action="madLib.php" method="post">
-  <input type="submit" value="New madLib" name="newMadLib" />
+  <input type="submit" class="button" value="New madLib" name="newMadLib" />
   <fieldset class="surveyResults">
   <table>
 
     <?php
-    $getMadLibByID = "SELECT MadLib_ID as mlid, noun_one as noun_one FROM cjohnson_qu5773oo WHERE MadLib_ID = \'$userID\'";
+    $getMadLibByID = "SELECT MadLib_ID as mlid, noun_one as noun_one FROM cjohnson_qu5773oo.MadLib WHERE USER_ID = \'$userID\'";
     require ('assets/db/mysqli_connect.php');
     $r = @mysqli_query($dbc, $getMadLibByID);
     if($r){
@@ -36,6 +36,7 @@
               <th>Jack and the $noun</th>
             </tr>
           ";
+          $i++;
         }
       } else {
           echo "<tr>
@@ -45,8 +46,8 @@
 	  mysqli_free_result($r);
 
       ?>
-      <input type="submit" name="updateMadLib" value="View MadLib" />
-      <input type="submit" name="updateMadLib" value="Delete" />
+      <input type="submit" class="button" name="updateMadLib" value="View MadLib" />
+      <input type="submit" class="button" name="updateMadLib" value="Delete" />
 
   </table>
 </feildset>

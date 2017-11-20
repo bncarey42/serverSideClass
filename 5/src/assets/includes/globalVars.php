@@ -11,11 +11,11 @@
 function createUser($email, $passwd, $fname, $lname){
   $createUser="INSERT into cjohnson_qu5773oo.User(USR_EMAIL, USR_PASSWORD, USR_FIRST_NAME, USR_LAST_NAME) VALUES ($email, $passwd, $fname, $lname)";
   require ('assets/db/mysqli_connect.php');
-  $r = @mysqli_query($dbc, $insertStudent);
+  $r = @mysqli_query($dbc, $createUser);
   if($r){
     $loggedOn = true;
   }
-  mysqli_free_result($r);
+  mysqli_close($dbc);
   return true;
 }
 
@@ -36,7 +36,7 @@ function logIn($email){
         $loggedOn=true;
     }
   }
-    mysqli_free_result($r);
+    mysqli_close($dbc);
 
 }
 
@@ -45,7 +45,7 @@ function userExists($email) {
   $exists = false;
   require ('assets/db/mysqli_connect.php');
   $r = @mysqli_query($dbc, $findUserByEmail);
-  $exists = $r;
+  if($r){ $exists = true;}
   return $exists;
 }
 
@@ -61,7 +61,7 @@ function isCorectPassword($email, $passwd){
       }
     }
   }
-  mysqli_free_result($r);
+  mysqli_close($dbc);
 }
 
 ?>

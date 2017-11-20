@@ -1,17 +1,40 @@
 <?php
 $updateMadLib = $_POST['updateMadLib'];
+//set for scope
+$plural_noun_one = '';
+$plural_noun_two = '';
+$adjective_one = '';
+$noun_one = '';
+$adjective_two = '';
+$adjective_three = '';
+$verb = '';
+$body_part = '';
+$adjective_four = '';
+$number = '';
+$noun_two = '';
 
 switch ($updateMadLib) {
   case 'View MadLib':
-    # code...
+    $mlid = $_POST['mlid'];
+    getMadLibByID($mlid);
     break;
   case 'Delete'
-    echo "<h3>While we delete your MadLib here it is one last time before it is deleted forever.</h3>";
-    
+
+    $mlid = $_POST['mlid'];
+    getMadLibByID($mlid);
+
+    $deleteMadLib="DELETE FROM cjohnson_qu5773oo.MadLib WHERE MAdLib_ID=\'$mlid\'";
+    $r = @mysqli_query($dbc, $deleteMadLib);
+    if($r) {
+        echo "<h3>While we delete your MadLib here it is one last time before it is deleted forever.</h3>";
+    }else {
+        echo "<h3 class=\"error\">There was an error removing the mad lib from your account please return to your profile and try again</h3>"
+    }
     break;
-  default:
+  case 'Submit MadLib'
     $plural_noun_one = $_POST['plural_noun_one'];
     $plural_noun_two = $_POST['plural_noun_two'];
+    $adjective_one =   $_POST['adjective_one'];
     $noun_one =        $_POST['noun_one'];
     $adjective_two =   $_POST['adjective_two'];
     $adjective_three = $_POST['adjective_three'];
@@ -20,10 +43,26 @@ switch ($updateMadLib) {
     $adjective_four =  $_POST['adjective_four'];
     $number =          $_POST['number'];
     $noun_two =        $_POST['noun_two'];
+    $insertMadLib = "INSERT INTO cjohnson_qu5773oo.MadLib(USER_ID, plural_noun_one, plural_noun_two, adjective_one, noun_one, adjective_two, adjective_three,verb,body_part,adjective_four,number,noun_two)
+    VALUES ($currentUID, $plural_noun_one, $plural_noun_two, $adjective_one, $noun_one, $adjective_two, $adjective_three, $verb, $body_part, $adjective_four, $number, $noun_two)";
+    break;
+  default:
+  $plural_noun_one = $_POST['plural_noun_one'];
+  $plural_noun_two = $_POST['plural_noun_two'];
+  $adjective_one =   $_POST['adjective_one'];
+  $noun_one =        $_POST['noun_one'];
+  $adjective_two =   $_POST['adjective_two'];
+  $adjective_three = $_POST['adjective_three'];
+  $verb =            $_POST['verb'];
+  $body_part =       $_POST['body_part'];
+  $adjective_four =  $_POST['adjective_four'];
+  $number =          $_POST['number'];
+  $noun_two =        $_POST['noun_two'];
     break;
 }
 
 ?>
+<h2>MadLib</h2>
 <p>
 <h3>Jack and the <?php echo "$noun_one;"; ?></h3>
   <?php
@@ -44,7 +83,35 @@ switch ($updateMadLib) {
     <input type="text" value="$verb" hidden="hidden" />
     <input type="text" value="$body_part" hidden="hidden" />
     <input type="text" value="$adjective_four " hidden="hidden" />
-    <input type="submit" value="Save MadLib" name="action"/>
-    <input type="submit" value="Don't Save MadLib" />
+    <input type="submit" class="button" value="Return to Profile"/>
   </form>
 </p>
+
+
+<?php
+
+function getMadLibByID($mlid){
+  $getMadLibByID = "SELECT MadLib_ID as mlid, USER_ID as uid, plural_noun_one as plural_noun_one,
+    plural_noun_two as plural_noun_two, adjective_one as adjective_one, noun_one as noun_one,
+    adjective_two as adjective_two, adjective_three as adjective_three, verb as verb,
+    body_part as body_part, adjective_four as adjective_four, number as number, noun_two as noun_two
+    FROM cjohnson_qu5773oo.MadLib WHERE MadLib_ID = \'$mlid\'";
+
+    require ('assets/db/mysqli_connect.php');
+    $r = @mysqli_query($dbc, $getMadLibByID);
+    if($r){
+      while($row=mysqli_fetch_array($r, MYSQLI_BOTH)){
+        $plural_noun_one = $row['plural_noun_one'];
+        $plural_noun_two = $row['plural_noun_two'];
+        $adjective_one = $row['adjective_one'];
+        $noun_one = $row['noun_one'];
+        $adjective_two = $row['adjective_two'];
+        $adjective_three = $row['adjective_three'];
+        $verb = $row['verb'];
+        $body_part = $row['body_part'];
+        $adjective_four = $row['adjective_four'];
+        $number = $row['number'];
+        $noun_two = $row['noun_two'];
+        }
+        mysqli_close($dbc);
+}

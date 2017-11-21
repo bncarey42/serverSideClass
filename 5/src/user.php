@@ -11,17 +11,22 @@ switch ($action) {
     $lastName=$_POST['lName'];
 
     require ('assets/db/mysqli_connect.php');
-    $q="INSERT INTO cjohnson_qu5773oo.User(USR_FIRST_NAME,USR_LAST_NAME,USR_EMAIL,USR_PASSWORD)
-        VALUES(\'$email\', \'$passwd\', \'$fname\', \'$lname\')";
+    $q="INSERT INTO cjohnson_qu5773oo.User(USR_FIRST_NAME,USR_LAST_NAME,USR_EMAIL,USR_PASSWORD) VALUES($email, $passwd, $fname, $lname)";
     $r=@mysqli_query($dbc, $q);
     if($r){
       $loggedOn = true;
+    } else{
+      echo"Unable to create user";
     }
     mysqli_close($dbc);
     break;
   case 'Log In':
     $email=$_POST['email'];
     $passwd=$_POST['passwd'];
+
+    if(userExists() && isCorectPassword()){
+      $loggedOn = true;
+    }
     break;
 }
 
@@ -41,7 +46,9 @@ function userExists($email) {
   $exists = false;
   require ('assets/db/mysqli_connect.php');
   $r = @mysqli_query($dbc, $findUserByEmail);
-  if($r){ $exists = true;}
+  if($r){
+    $exists = true;
+  }
   return $exists;
 }
 

@@ -26,8 +26,10 @@ switch ($action) {
 
 if($loggedOn){
   include('assets/forms/profile.php');
-} else{
-  include('assets/forms/createUser.php');
+} else if($action == 'Create User'{
+	include('assets/forms/createUser.php');
+}else
+	echo "NOPE!";
 }
 include('assets/includes/footer.php');
 ?>

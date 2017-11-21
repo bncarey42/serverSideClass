@@ -24,8 +24,19 @@ switch ($action) {
     $email=$_POST['email'];
     $passwd=$_POST['passwd'];
 
-    if(userExists() && isCorectPassword()){
-      $loggedOn = true;
+    $userExists = userExists($email, $passwd);
+    $passwordIsCorrect = isCorectPassword($email, $passwd);
+    if($userExists && $passwordIsCorrect){
+      require ('assets/db/mysqli_connect.php');
+      $selectUIDByEmail = "SELECT USR_ID as id FROM cjohnson_qu5773oo.User WHERE USR_EMAIL=\'$email\'";
+      $r = @mysqli_query($dbc, $selectUIDByEmail);
+      if($r){
+        while($row=mysqli_fetch_array($r, MYSQLI_BOTH)){
+          $currentUID=$row['id'];
+          $loggedOn=true;
+        }
+      }
+      mysqli_close($dbc);
     }
     break;
 }
@@ -67,22 +78,6 @@ function isCorectPassword($email, $passwd){
   mysqli_close($dbc);
   }
 
-function logIn(){
-  $userExists = userExists($email, $passwd);
-  $passwordIsCorrect = isCorectPassword($email, $passwd);
-  if($userExists && $passwordIsCorrect){
-    require ('assets/db/mysqli_connect.php');
-    $selectUIDByEmail = "SELECT USR_ID as id FROM cjohnson_qu5773oo.User WHERE USR_EMAIL=\'$email\'";
-    $r = @mysqli_query($dbc, $selectUIDByEmail);
-    if($r){
-      while($row=mysqli_fetch_array($r, MYSQLI_BOTH)){
-        $currentUID=$row['id'];
-        $loggedOn=true;
-      }
-    }
-    mysqli_close($dbc);
-  }
-}
 
 function isLoggedOn(){
   if($currentUID!=0){

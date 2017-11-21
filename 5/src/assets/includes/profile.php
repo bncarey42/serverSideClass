@@ -48,6 +48,8 @@
       ?>
       <input type="submit" class="button" name="updateMadLib" value="View MadLib" />
       <input type="submit" class="button" name="updateMadLib" value="Delete" />
+      <input type="submit" class="button" name="updateMadLib" value="New MadLib" />
+
 
   </table>
 </feildset>

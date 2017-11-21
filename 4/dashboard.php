@@ -6,6 +6,7 @@ if(isset($surveyIDsToDelete)){
   include("assets/includes/forms/deleteSurvey.php");
 }
 ?>
+<form action="deleteSurvey.php" method=\"post\">
 <fieldset class="surveyResults">
 <table>
 <?php
@@ -28,7 +29,6 @@ if(isset($surveyIDsToDelete)){
         <tr>
           <th>STUDENT NAME</th><th>COURSE NUMBER</th><th>ANSWER ONE</th><th>ANSWER TWO</th><th>ANSWER THREE</th><th>ANSWER FOUR</th><th>ANSWER FIVE</th><th>DELETE</th>
         </tr>
-        <form method=\"post\">
           <tr class=\"$rowClass\">
             <th>\"$row[lastName]\", \"$row[firstName]\" </th>
             <th>\"$row[className]\"</th>
@@ -68,7 +68,4 @@ if(isset($surveyIDsToDelete)){
 
   include("assets/includes/footer.php");
 
-function deleteSurvey(){
-
-}
 ?>

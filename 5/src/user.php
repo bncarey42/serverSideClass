@@ -1,7 +1,7 @@
 <?php include('assets/includes/header.php');
 //Create New User
 $action = $_POST['action'];
-
+echo "$action";
 switch ($action) {
   case 'Create User':
     //Create New User

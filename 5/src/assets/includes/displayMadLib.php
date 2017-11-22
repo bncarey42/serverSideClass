@@ -24,7 +24,7 @@ switch ($updateMadLib) {
     getMadLibByID($mlid);
 
     $deleteMadLib="DELETE FROM cjohnson_qu5773oo.MadLib WHERE MAdLib_ID=\'$mlid\'";
-    $r = @mysqli_query($dbc, $deleteMadLib);
+    $r = @mysqli_query($conn, $deleteMadLib);
     if($r) {
         echo "<h3>While we delete your MadLib here it is one last time before it is deleted forever.</h3>";
     }else {
@@ -97,7 +97,7 @@ function getMadLibByID($mlid){
     FROM cjohnson_qu5773oo.MadLib WHERE MadLib_ID = \'$mlid\'";
 
     require('assets/db/mysqli_connect.php');
-    $r=@mysqli_query($dbc, $getMadLibByID);
+    $r=@mysqli_query($conn, $getMadLibByID);
     if($r){
       while($row=mysqli_fetch_array($r, MYSQLI_BOTH)){
           $plural_noun_one = $row['plural_noun_one'];
@@ -112,7 +112,7 @@ function getMadLibByID($mlid){
           $number = $row['number'];
           $noun_two = $row['noun_two'];
         }
-        mysqli_close($dbc);
+        mysqli_close($conn);
       }
 }
 ?>

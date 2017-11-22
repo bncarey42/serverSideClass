@@ -3,42 +3,49 @@
 $action = $_POST['action'];
 echo "$action";
 switch ($action) {
-  case 'Create User':
+  case 'Create':
     //Create New User
+    echo "In create user";
     $email=$_POST['email'];
+    echo "$email";
     $passwd= isset($_POST['passwd']) ? $_POST['passwd'] : ' ';
+    echo "$passwd";
     $firstName=$_POST['fName'];
+    echo "$firstName";
     $lastName=$_POST['lName'];
+    echo "$lastName";
 
-    require ('assets/db/mysqli_connect.php');
-    $q="INSERT INTO cjohnson_qu5773oo.User(USR_FIRST_NAME,USR_LAST_NAME,USR_EMAIL,USR_PASSWORD) VALUES($email, $passwd, $fname, $lname)";
-    $r=@mysqli_query($dbc, $q);
+    require('mysqli_connect.php');
+    $q="INSERT INTO cjohnson_qu5773oo.User(USR_FIRST_NAME,USR_LAST_NAME,USR_EMAIL,USR_PASSWORD) VALUES($firstName, $lastName,$email, $passwd)";
+    echo "$q";
+    $r=@mysqli_query($conn, $q);
+    echo "$r";
     if($r){
       $loggedOn = true;
     } else{
       echo"Unable to create user";
     }
-    mysqli_close($dbc);
     break;
-  case 'Log In':
+  case 'LogIn':
     $email=$_POST['email'];
     $passwd=$_POST['passwd'];
 
-    $userExists = userExists($email, $passwd);
+    $userExists = userExists($email);
     $passwordIsCorrect = isCorectPassword($email, $passwd);
     if($userExists && $passwordIsCorrect){
-      require ('assets/db/mysqli_connect.php');
+      require('mysqli_connect.php');
       $selectUIDByEmail = "SELECT USR_ID as id FROM cjohnson_qu5773oo.User WHERE USR_EMAIL=\'$email\'";
-      $r = @mysqli_query($dbc, $selectUIDByEmail);
+      $r = @mysqli_query($conn, $selectUIDByEmail);
       if($r){
         while($row=mysqli_fetch_array($r, MYSQLI_BOTH)){
           $currentUID=$row['id'];
           $loggedOn=true;
         }
       }
-      mysqli_close($dbc);
+
     }
     break;
+    mysqli_close($conn);
 }
 
 if($loggedOn){
@@ -53,21 +60,23 @@ include('assets/includes/footer.php');
 
 
 function userExists($email) {
-  $findUserByEmail = "SELECT USR_EMAIL FROM cjohnson_qu5773oo.User WHERE USR_EMAIL=\'$email\'";
+  echo "finding user";
+  $findUserByEmail = "SELECT USR_EMAIL FROM cjohnson_qu5773oo.User WHERE USR_EMAIL=$email";
   $exists = false;
-  require ('assets/db/mysqli_connect.php');
-  $r = @mysqli_query($dbc, $findUserByEmail);
+  require('mysqli_connect.php');
+  $r = @mysqli_query($conn, $findUserByEmail);
   if($r){
     $exists = true;
   }
+  echo "$exists";
   return $exists;
 }
 
 function isCorectPassword($email, $passwd){
   $selectPasswordForUserByEmail = "SELECT USR_PASSWORD as password FROM cjohnson_qu5773oo.User WHERE USR_EMAIL=\'$email\'";
   $correct = false;
-  require ('assets/db/mysqli_connect.php');
-  $r = @mysqli_query($dbc, $selectPasswordForUserByEmail);
+  require('assets/db/mysqli_connect.php');
+  $r = @mysqli_query($conn, $selectPasswordForUserByEmail);
   if($r){
     while($row = mysqli_fetch_array($r, MYSQLI_BOTH)){
       if($passwd = $row['password']){
@@ -75,7 +84,7 @@ function isCorectPassword($email, $passwd){
       }
     }
   }
-  mysqli_close($dbc);
+
   }
 
 
@@ -87,15 +96,15 @@ function isLoggedOn(){
 
 function getUserName(){
   $getUserByID = "SELECT USR_FIRST_NAME as fname, USR_LAST_NAME as lname FROM cjohnson_qu5773oo.User WHERE USER_ID = \'$currentUID\'";
-  require ('assets/db/mysqli_connect.php');
-  $r = @mysqli_query($dbc, $getUserByID);
+  require('assets/db/mysqli_connect.php');
+  $r = @mysqli_query($conn, $getUserByID);
   $userName='';
   if($r){
     while($row=mysqli_fetch_array($r, MYSQLI_BOTH)){
       $userName=$row['fname'].' '.$row['lName'];
     }
   }
-  mysqli_close($dbc);
+  mysqli_free_result($conn);
   return $userName;
 }
 ?>

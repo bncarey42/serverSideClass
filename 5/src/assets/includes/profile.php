@@ -19,8 +19,8 @@
 
     <?php
     $getMadLibByID = "SELECT MadLib_ID as mlid, noun_one as noun_one FROM cjohnson_qu5773oo.MadLib WHERE USER_ID = \'$userID\'";
-    require ('assets/db/mysqli_connect.php');
-    $r = @mysqli_query($dbc, $getMadLibByID);
+    require('assets/db/mysqli_connect.php');
+    $r = @mysqli_query($conn, $getMadLibByID);
     if($r){
       $i=0;
       while($row=mysqli_fetch_array($r, MYSQLI_BOTH)){

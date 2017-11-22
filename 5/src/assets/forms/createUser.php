@@ -7,5 +7,5 @@ $email = $_POST['email'];
   <lable for='lname'>Last Name:</lable><input type="text" name="lName" required/>
   <lable for="">Email:</lable><input type="email" name="email" value="<?php echo "$email"; ?>" required/>
   Password<input type="password" name="passwd" />
-  <input type="submit" class="button" class="button" value="Create User" name="action" />
+  <input type="submit" class="button" class="button" value="Create" name="action" />
 </form>

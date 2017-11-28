@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<meta http-equiv="refresh" content="7"; url=index.php" />
+<meta http-equiv="refresh" content="5"; url=index.php" />
 </head>
 <body>
 <p>You are being logged of</p>

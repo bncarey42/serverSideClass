@@ -1,5 +1,5 @@
-<?php 
-	session_start();
+<?php session_start(); 
+	include('assets/includes/header.html'); 
 	$conn = mysqli_connect('localhost', 'cjohnson_qu5773o', '12856076bc', 'cjohnson_qu5773oo');
 	if (!$conn) {
 		die("Connection failed: " . mysqli_connect_error());
@@ -26,4 +26,4 @@
 		$_SESSION['errMsg'] = "<p class=\'err\'>Incorrect Username or Password</p>";
 		header('location:index.php');
 	}
-?>
+include('assets/includes/footer.html'); ?>

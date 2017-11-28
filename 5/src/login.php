@@ -15,9 +15,9 @@ if (!$conn) {
 	$row=mysqli_fetch_assoc($r);
 	echo $row;
 	if($r){
-			$_SESSION['uid'] = $row['USR_ID'];
-			$_SESSION['fname'] = $row['USR_FIRST_NAME'];
-			$_SESSION['lname'] = $row['USR_LAST_NAME'];
+		$_SESSION['uid'] = $row['USR_ID'];
+		$_SESSION['fname'] = $row['USR_FIRST_NAME'];
+		$_SESSION['lname'] = $row['USR_LAST_NAME'];
 			header('Location:profile.php');
 	} else {
 		$_SESSION['errMsg'] = "<p class=\'err\'>Incorrect Username or Password</p><p>$sql</p>";

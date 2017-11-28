@@ -12,17 +12,18 @@ if (!$conn) {
     die("Connection failed: ".mysqli_connect_error());
 }
 
-	$sql="SELECT USR_ID as id, USR_FIRST_NAME as fname, USR_LAST_NAME as lname FROM cjohnson_qu5773oo.User WHERE USR_EMAIL='$email' USR_PASSWORD='$passwd'";
+	$sql="SELECT USR_ID, USR_FIRST_NAME, USR_LAST_NAME FROM cjohnson_qu5773oo.User WHERE USR_EMAIL='$email' USR_PASSWORD='$passwd'";
 	$r=mysqli_query($conn, $sql);
-
+	$row=mysqli_fetch_assoc($r);
+	echo $row;
 	if($r){
-			$row = mysql_fetch_assoc($r);
-			$_SESSION['uid'] = $row['id'];
-			$_SESSION['fname'] = $row['fname'];
-			$_SESSION['lname'] = $row['lname'];
-			header('Location:profile.php');
+
+			$_SESSION['uid'] = $row['USR_ID'];
+			$_SESSION['fname'] = $row['USR_FIRST_NAME'];
+			$_SESSION['lname'] = $row['USR_LAST_NAME'];
+			//header('Location:profile.php');
 	} else {
 		$_SESSION['errMsg'] = "<p class=\'err\'>Incorrect Username or Password</p><p>$sql</p>";
-		header('Location:index.php');
+		//header('Location:index.php');
 	}
-include('assets/includes/footer.html'); ?>
+?>

@@ -1,6 +1,7 @@
-<?php session_start(); include('assets/includes/header.html'); 
-	if(isset($_SESSION['err'])){
-		echo $_SESSION['err'])
+<?php session_start(); 
+	include('assets/includes/header.html'); 
+	if(isset($_SESSION['errMsg'])){
+		echo $_SESSION['errMsg'])
 	}
 ?>
 	<form action='assets/include/login.php' method='POST'> 

@@ -23,6 +23,7 @@
 		}
 		header('location:profile.php');
 	} else {
-		header('location:notLogOn.php');
+		$_SESSION['errMsg'] = "<p class=\'err\'>Incorrect Username or Password</p>";
+		header('location:index.php');
 	}
 ?>

@@ -1,5 +1,11 @@
-<?php 
-	include('assets/includes/header.html');
-	include('assets/forms/login.html');
-	include('assets/includes/footer.html');
+<?php session_start(); include('assets/includes/header.html'); 
+	if(isset($_SESSION['err'])){
+		echo $_SESSION['err'])
+	}
 ?>
+	<form action='assets/include/login.php' method='POST'> 
+		Email:<input type='email' name='uname'/>
+		Password:<input type='password' name='passwd'/>
+		<input type='submit' value='LogIn'/>
+	</form>
+<?php include('assets/includes/footer.html'); ?>

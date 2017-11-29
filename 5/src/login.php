@@ -1,5 +1,5 @@
 <?php session_start();
-	$email=$_POST['uname'];
+	$email=$_POST['email'];
 	$passwd=$_POST['passwd'];
 	$servername = "localhost";
 	$username = "cjohnson_qu5773o";

@@ -2,23 +2,14 @@
 	$email=$_POST['email'];
 	$passwd=$_POST['passwd'];
 
-	$servername = "localhost";
-	$username = "cjohnson_qu5773o";
-	$password = "12856076bc";
-	// Create connection
-	$conn = mysqli_connect($servername, $username, $password);
-	// Check connection
-	if (!$conn) {
-	    die("Connection failed: ".mysqli_connect_error());
-	}
-
 	$action=$_POST['action'];
 
 	if($action=='Log In'){
 		logIn();
-	} elseif ($action=="Create") {
+	} else if ($action=="Create") {
 		$firstName=$_POST['fName'];
 		$lastName=$_POST['lName'];
+		require '../SQL_CONNECT.php';
 		$sql="INSERT INTO cjohnson_qu5773oo.User(USR_FIRST_NAME, USR_LAST_NAME, USR_EMAIL, USR_PASSWORD) VALUES('$firstName', '$lastName', '$email', '$passwd')";
 		$r=mysqli_query($conn, $sql);
 		if($r){
@@ -33,16 +24,17 @@
 	}
 
 function logIn(){
-	$sql="SELECT USR_ID, USR_FIRST_NAME, USR_LAST_NAME FROM cjohnson_qu5773oo.User WHERE USR_EMAIL='$email' USR_PASSWORD='$passwd'";
+	require '../SQL_CONNECT.php';
+	$sql="SELECT USR_ID as uid, USR_FIRST_NAME as fn, USR_LAST_NAME as ln FROM cjohnson_qu5773oo.User WHERE USR_EMAIL='$email' USR_PASSWORD='$passwd'";
 	$r=mysqli_query($conn, $sql);
 	if($r){
 		$row=mysqli_fetch_assoc($r);
-		$_SESSION['uid'] = $row['USR_ID'];
-		$_SESSION['fname'] = $row['USR_FIRST_NAME'];
-		$_SESSION['lname'] = $row['USR_LAST_NAME'];
+		$_SESSION['uid'] = $row['uid'];
+		$_SESSION['fname'] = $row['fn'];
+		$_SESSION['lname'] = $row['ln'];
 			header('Location:profile.php');
 	} else {
-		$_SESSION['errMsg'] = "<p class=\'err\'>Incorrect Username or Password</p><p>$sql</p>";
+		$_SESSION['errMsg'] = "<p class=\'err\'>Incorrect Username or Password</p><p>if you need to creat a New User <a href='newUser.php'>Click Here</a>.</p>";
 		header('Location:index.php');
 	}
 }

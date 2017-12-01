@@ -4,12 +4,6 @@ if(isset($_SESSION['errMsg'])){
   echo $_SESSION['errMsg'];
 }
 
-$newMadLib = $_POST['saveMadLib'];
-
-  if(isset($newMadLib) && $newMadLib=="Save MadLib"){
-    new_entry();
-    echo "lets go!";
-  }
 ?>
 <h1>Hi <?php echo"$_SESSION['fname'] $_SESSION['lname']"; ?></h1>
     <?php

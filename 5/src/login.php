@@ -1,4 +1,4 @@
-<?php
+<?php	session_start();
 	$email=$_POST['email'];
 	$passwd=$_POST['passwd'];
 

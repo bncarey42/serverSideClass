@@ -5,8 +5,8 @@
 
   switch($action){
     case 'View MadLib':
-      $title = array('m\'lord', 'sir/madam', '');
-      $_SESSION['msg']='Your MadLib, $title[rand(0,4)]';
+      $title = array('m\'lord', 'sir/madam', 'hommie', 'brother/sister', 'brosef');
+      $_SESSION['msg']='Here is your MadLib, $title[rand(0,4)]';
       header(Location: );
       break;
     case 'Delete':

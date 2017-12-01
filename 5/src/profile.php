@@ -6,9 +6,7 @@
 	}
   $firstName = $_SESSION['fname'];
   $lastName = $_SESSION['lname'];
-?>
-
- <h1>Hello <?php echo"$firstName $lastName"; ?></h1>
+echo"<h1>Hello $firstName $lastName</h1>"; ?>
 <form action="madLib.php" method="post">
  <fieldset>
    <table>

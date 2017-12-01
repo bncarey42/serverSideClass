@@ -1,4 +1,5 @@
 <?php
+  session_start();
   include('assets/includes/globalVars.php');
 ?>
 <!DOCTYPE html>
@@ -17,17 +18,9 @@
     <center>
         <header>
                 <h1>Welcome to MADLIBS</h1>
-          <div class="navMenu">
-              <ul>
-                <?php
-                if($loggedOn){
-                  foreach ($pageFiles as $page => $file){
-                    echo "<a href=\"$file\"><li>$page</li></a>";
-                  }
-                }
-                ?>
-
-              </ul>
-          </div>
+                <?php if (isset($_SESSION['uid'])) {
+                  $usrName = $_SESSION['uname'];
+                  echo "<p>You are currently logged on as $usrName. <a href='logOff.php'>Click here to Log off</a></p>";
+                } ?>
         </header>
         <center>

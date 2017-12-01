@@ -1,14 +1,20 @@
 <?php
-include('assets/includes/header.php');
-if(isset($_SESSION['errMsg'])){
-  echo $_SESSION['errMsg'];
-}
-
+	include('assets/includes/header.php');
+	if(isset($_SESSION['errMsg'])){
+		echo $_SESSION['errMsg'];
+    $_SESSION['errMsg'] = "";
+	}
+  $firstName = $_SESSION['fname'];
+  $lastName = $_SESSION['lname'];
 ?>
-<h1>Hi <?php echo"$_SESSION['fname'] $_SESSION['lname']"; ?></h1>
+
+ <h1>Hello <?php echo"$firstName $lastName"; ?></h1>
+<form action="madLib.php" method="post">
+ <fieldset>
+   <table>
     <?php
     $getMadLibByID = "SELECT MadLib_ID as mlid, noun_one as noun_one FROM cjohnson_qu5773oo.MadLib WHERE USER_ID = \'$userID\'";
-    require('assets/db/mysqli_connect.php');
+    require '../SQL_CONNECT.php';
     $r = @mysqli_query($conn, $getMadLibByID);
     if($r){
       $i=0;
@@ -32,7 +38,7 @@ if(isset($_SESSION['errMsg'])){
           <th>No MadLibs found for this user</th>
           </tr>";
       }
-	  mysqli_free_result($r);
+
 
       ?>
       <input type="submit" class="button" name="updateMadLib" value="View MadLib" />
@@ -41,6 +47,6 @@ if(isset($_SESSION['errMsg'])){
 
 
   </table>
-</feildset>
+</fieldset>
 </form>
 <?php include('assets/includes/footer.php');?>

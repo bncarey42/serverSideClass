@@ -1,4 +1,4 @@
-<?php session_start();
+<?php
 	$email=$_POST['email'];
 	$passwd=$_POST['passwd'];
 
@@ -30,8 +30,9 @@ function logIn(){
 	if($r){
 		$row=mysqli_fetch_assoc($r);
 		$_SESSION['uid'] = $row['uid'];
-		$_SESSION['fname'] = $row['fn'];
-		$_SESSION['lname'] = $row['ln'];
+		$fname = $row['fn'];
+		$lname = $row['ln'];
+		$_SESSION['uname'] = "$fName $lname";
 			header('Location:profile.php');
 	} else {
 		$_SESSION['errMsg'] = "<p class=\'err\'>Incorrect Username or Password</p><p>if you need to creat a New User <a href='newUser.php'>Click Here</a>.</p>";

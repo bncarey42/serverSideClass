@@ -1,22 +1,17 @@
 <?php
-  $newMadLib = $_POST['saveMadLib'];
+include('assets/includes/header.php');
+if(isset($_SESSION['errMsg'])){
+  echo $_SESSION['errMsg'];
+}
+
+$newMadLib = $_POST['saveMadLib'];
 
   if(isset($newMadLib) && $newMadLib=="Save MadLib"){
     new_entry();
     echo "lets go!";
   }
 ?>
-<h3>
-  <?php
-  $userName=getUserNameByUID($uid);
-  echo "Hello $userName"
-  ?>
-</h3>
-<form action="madLib.php" method="post">
-  <input type="submit" class="button" value="New madLib" name="newMadLib" />
-  <fieldset class="surveyResults">
-  <table>
-
+<h1>Hi <?php echo"$_SESSION['fname'] $_SESSION['lname']"; ?></h1>
     <?php
     $getMadLibByID = "SELECT MadLib_ID as mlid, noun_one as noun_one FROM cjohnson_qu5773oo.MadLib WHERE USER_ID = \'$userID\'";
     require('assets/db/mysqli_connect.php');
@@ -54,3 +49,4 @@
   </table>
 </feildset>
 </form>
+<?php include('assets/includes/footer.php');?>

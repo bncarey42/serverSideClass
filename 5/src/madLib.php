@@ -10,7 +10,7 @@
       header(Location: );
       break;
     case 'Delete':
-      $_SESSION['msg']='Are you sure you want to delete this MadLib?';
+      $_SESSION['msg']='Gaze upon this mad MadLib one last time before it is cast into the void and deleted forever';
       header(Location: );
       break;
     case 'New MadLib':

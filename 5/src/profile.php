@@ -4,9 +4,10 @@
 		echo $_SESSION['errMsg'];
     $_SESSION['errMsg'] = "";
 	}
-  $firstName = $_SESSION['fname'];
+/*  $firstName = $_SESSION['fname'];
   $lastName = $_SESSION['lname'];
   echo"<h1>Hello $firstName $lastName</h1>";
+  */
 ?>
 
 <form action="madLib.php" method="post">

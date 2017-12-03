@@ -4,10 +4,7 @@
 		echo $_SESSION['errMsg'];
     $_SESSION['errMsg'] = "";
 	}
-/*  $firstName = $_SESSION['fname'];
-  $lastName = $_SESSION['lname'];
-  echo"<h1>Hello $firstName $lastName</h1>";
-  */
+  echo"<h1>Hello $uname</h1>";
 ?>
 
 <form action="madLib.php" method="post">

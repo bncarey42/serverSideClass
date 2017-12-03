@@ -12,12 +12,12 @@
    <table>
 
     <?php
-      $getMadLibByID = "SELECT MadLib_ID as mlid, noun_one as noun_one FROM cjohnson_qu5773oo.MadLib WHERE USER_ID = \'$userID\'";
+      $getMadLibByID = "SELECT MadLib_ID as mlid, noun_one as noun_one FROM cjohnson_qu5773oo.MadLib WHERE USER_ID=$userID";
       require '../SQL_CONNECT.php';
       $r = @mysqli_query($conn, $getMadLibByID);
       if($r){
         $i=0;
-        while($row=mysqli_fetch_array($r, MYSQLI_BOTH)){
+        while($row=mysqli_fetch_assoc($r)){
           $rowClass=(($i%2==0) ? "even" : "odd");
           $mlid = $row['mlid'];
           $noun=$row['noun_one'];

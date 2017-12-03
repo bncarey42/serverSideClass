@@ -30,6 +30,10 @@ center{
   color: #cc241d;
 }
 
+.err{
+  color: #cc241d;
+}
+
 /*HEADER*/
 header {
   padding-top: 10px;

@@ -6,7 +6,7 @@
 		echo $_SESSION['msg'];
     $_SESSION['msg'] = "";
 	}
-  echo"<h1>Hello $uname $uid</h1>";
+  echo"<h1>Hello $uname</h1>";
 ?>
 
 <form action="madLib.php" method="post">
@@ -38,9 +38,11 @@
             </tr>";
         }
       ?>
-      <input type="submit" class="button" name="updateMadLib" value="View MadLib" />
-      <input type="submit" class="button" name="updateMadLib" value="Delete" />
-      <input type="submit" class="button" name="updateMadLib" value="New MadLib" />
+      <tr>
+				<th><input type="submit" class="button" name="updateMadLib" value="View MadLib" /></th>
+	      <th><input type="submit" class="button" name="updateMadLib" value="Delete" /></th>
+	      <th><input type="submit" class="button" name="updateMadLib" value="New MadLib" /></th>
+			</tr>
   </table>
 </fieldset>
 </form>

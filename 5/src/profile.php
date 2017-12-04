@@ -1,9 +1,8 @@
 <?php
 	include('assets/includes/header.php');
-	if(isset($_SESSION['errMsg'])){
-		echo $_SESSION['errMsg'];
-    $_SESSION['errMsg'] = "";
-	}
+	$uid=$_SESSION['uid'];
+	$uname=$_SESSION['uname'];
+	echo $uid;
   echo"<h1>Hello $uname</h1>";
 ?>
 
@@ -12,7 +11,8 @@
    <table>
 
     <?php
-      $getMadLibByID = "SELECT MadLib_ID as mlid, noun_one as noun_one FROM cjohnson_qu5773oo.MadLib WHERE USER_ID=$userID";
+      $getMadLibByID = "SELECT MadLib_ID as mlid, noun_one as noun_one FROM cjohnson_qu5773oo.MadLib WHERE USER_ID='$uid'";
+						
       require '../SQL_CONNECT.php';
       $r = @mysqli_query($conn, $getMadLibByID);
       if($r){
@@ -22,22 +22,22 @@
           $mlid = $row['mlid'];
           $noun=$row['noun_one'];
             echo"
-              <tr class=\"$rowClass\">
+              <tr class='$rowClass'>
                 <th>
-                  <input type=\"radio\" name=\"mlid\" value=\"$mlid\" hidden\>
-                    <input type=\"radio\" />
-                  </th>
+                  <input type='radio' name='mlid' value='$mlid' hidden\>
+                  <input type='radio' />
+                </th>
                 <th>Jack and the $noun</th>
               </tr>";
             $i++;
           }
         } else {
-            echo "<tr>
-            <th>No MadLibs found for this user</th>
+            echo "
+						<tr>
+            	<th>No MadLibs found for this user</th>
             </tr>";
         }
       ?>
-
       <input type="submit" class="button" name="updateMadLib" value="View MadLib" />
       <input type="submit" class="button" name="updateMadLib" value="Delete" />
       <input type="submit" class="button" name="updateMadLib" value="New MadLib" />

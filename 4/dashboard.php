@@ -10,7 +10,7 @@ if(isset($surveyIDsToDelete)){
 <fieldset class="surveyResults">
 <table>
 <?php
-    require ('assets/db/mysqli_connect.php');
+    require '../SQL_CONNECT.php';
 
     $fetchSurveys = "SELECT SRVY_ANSWER_ONE, SRVY_COMMENT_ONE, SRVY_ANSWER_TWO, SRVY_COMMENT_TWO,
       SRVY_ANSWER_THREE, SRVY_COMMENT_THREE, SRVY_ANSWER_FOUR, SRVY_COMMENT_FOUR, SRVY_ANSWER_FIVE,

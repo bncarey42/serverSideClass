@@ -7,7 +7,7 @@
     echo "<h3>Thanks $fname $lname. Please review $course</h3>";
     $quNum = 0;
 
-    require ("assets/db/mysqli_connect.php");
+    require '../SQL_CONNECT.php';
     $getQuestions = "SELECT QSTNS_QESTION as question FROM cjohnson_qu5773oo.BTC_QUESTIONS";
     $r = @mysqli_query($dbc , $getQuestions);
     if($r){

@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lato|Libre+Baskerville" rel="stylesheet">
 </head>
 <?php
-  require ("assets/db/mysqli_connect.php");
+  require '../SQL_CONNECT.php';
   $insertStudent = "INSERT INTO cjohnson_qu5773oo.STUDENT (STDNT_STUDENT_ID, STDNT_FIRST_NAME, STDNT_LAST_NAME, STDNT_GENDER, STDNT_COHORT) VALUES '$fname' '$lname' '$course' '$cohort' '$gender'";
   $r = @mysqli_query($dbc, $insertStudent);
   $rowNum = 0;

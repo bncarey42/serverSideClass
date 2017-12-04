@@ -29,7 +29,7 @@ input {
   padding-top: 0.5em;
   padding-bottom: 0.5em;
   margin-bottom: 0.5em;
-  width: 95%;
+  width: 90%;
   font-family: 'Kreon', serif;
   font-size: 1em;
   color: #665c54;
@@ -104,12 +104,12 @@ select:active {
   font-size: 1em;
   color: #665c54;
 }
-.buttons input{
+.buttons{
   background-color: #427b58;
   color: #ebdbb2;
   border: none;
   border-radius: 15px;
-  width: auto;
+  width: 50%;
   padding: 5px;
   padding-left: 3px;
   padding-right: 3px;

@@ -40,7 +40,7 @@
 					$_SESSION['uid'] = $row['uid'];
 					$fname = $row['fn'];
 					$lname = $row['ln'];
-					$_SESSION['uname'] = $fName." ".$lname;
+					$_SESSION['uname'] = $fName.$lname;
 					header('Location:profile.php');
 				} else {
 					$_SESSION['errMsg'] = "<p class=\'err\'>Error creating user</p>";

@@ -2,17 +2,14 @@
 	include('assets/includes/header.php');
 	$uid=$_SESSION['uid'];
 	$uname=$_SESSION['uname'];
-	echo $uid;
   echo"<h1>Hello $uname</h1>";
 ?>
 
 <form action="madLib.php" method="post">
  <fieldset>
    <table>
-
     <?php
       $getMadLibByID = "SELECT MadLib_ID as mlid, noun_one as noun_one FROM cjohnson_qu5773oo.MadLib WHERE USER_ID='$uid'";
-						
       require '../SQL_CONNECT.php';
       $r = @mysqli_query($conn, $getMadLibByID);
       if($r){
@@ -24,8 +21,7 @@
             echo"
               <tr class='$rowClass'>
                 <th>
-                  <input type='radio' name='mlid' value='$mlid' hidden\>
-                  <input type='radio' />
+                  <input type='radio' name='mlid' value='$mlid'\>
                 </th>
                 <th>Jack and the $noun</th>
               </tr>";

@@ -2,7 +2,11 @@
 	include('assets/includes/header.php');
 	$uid=$_SESSION['uid'];
 	$uname=$_SESSION['uname'];
-  echo"<h1>Hello $uname</h1>";
+	if(isset($_SESSION['msg'])){
+		echo $_SESSION['msg'];
+    $_SESSION['msg'] = "";
+	}
+  echo"<h1>Hello $uname $uid</h1>";
 ?>
 
 <form action="madLib.php" method="post">

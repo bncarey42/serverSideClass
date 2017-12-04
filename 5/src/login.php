@@ -94,7 +94,7 @@
 		$r=mysqli_query($conn, $sql);
 		if($r){
 			$row=mysqli_fetch_assoc($r);
-			$_SESSION['uid'] = $row['uid']+1;
+			$_SESSION['uid'] = $row['uid']+1; //for whatever reason this subtracts one from the acctual userID...
 			$fname = $row['fn'];
 			$lname = $row['ln'];
 			$_SESSION['uname'] = $fname." ".$lname;

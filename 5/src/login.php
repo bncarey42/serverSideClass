@@ -1,6 +1,6 @@
 <?php	session_start();
-	$email=mysqli_real_escape_string($con, $_POST['email']);
-	$passwd=mysqli_real_escape_string($con,$_POST['passwd']);
+	$email=mysqli_real_escape_string($conn, $_POST['email']);
+	$passwd=mysqli_real_escape_string($conn,$_POST['passwd']);
 	$action=$_POST['action'];
 
 	switch ($action) {
@@ -59,8 +59,8 @@
 
 /*******************************************************************************************************
 <?php	session_start();
-	$email=mysqli_real_escape_string($con, $_POST['email']);
-	$passwd=mysqli_real_escape_string($con, $_POST['passwd']);
+	$email=mysqli_real_escape_string($conn, $_POST['email']);
+	$passwd=mysqli_real_escape_string($conn, $_POST['passwd']);
 	$action=$_POST['action'];
 	
 	switch ($action) {
@@ -69,8 +69,8 @@
 			mysqli_free_result($r);
 			break;
 		case 'Create':
-			$firstName=mysqli_real_escape_string($con, $_POST['fName']);
-			$lastName=mysqli_real_escape_string($con, $_POST['lName']);
+			$firstName=mysqli_real_escape_string($conn, $_POST['fName']);
+			$lastName=mysqli_real_escape_string($conn, $_POST['lName']);
 			//insert user
 			require '../SQL_CONNECT.php';
 			$sql="INSERT INTO cjohnson_qu5773oo.User(USR_FIRST_NAME, USR_LAST_NAME, USR_EMAIL, USR_PASSWORD) VALUES('$firstName', '$lastName', '$email', SHA1('$passwd'))";

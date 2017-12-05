@@ -62,7 +62,7 @@
 	$email=$_POST['email'];
 	$passwd=$_POST['passwd'];
 	$action=$_POST['action'];
-
+	
 	switch ($action) {
 		case 'Log In':
 			logIn('index.php');

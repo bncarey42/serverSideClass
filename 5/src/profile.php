@@ -12,11 +12,25 @@
 <form action="madLib.php" method="post">
  <fieldset>
    <table>
+
     <?php
       $getMadLibByID = "SELECT MadLib_ID as mlid, noun_one as noun_one FROM cjohnson_qu5773oo.MadLib WHERE USER_ID='$uid'";
       require '../SQL_CONNECT.php';
       $r = @mysqli_query($conn, $getMadLibByID);
       if($r){
+				$numMadLibs=mysqli_num_rows($r);
+				if($numMadLibs>0){
+					echo"
+					<tr class='$rowClass'>
+			 			 <th>Select your MadLib</th>
+			 			 <th colspan='4'>MadLib Title</th>
+		 		 	</tr>";
+			 } else {
+					 echo "
+					 <tr >
+						 <th>No MadLibs found for this user. Why don't you add some!</th>
+					 </tr>";
+			 }
         $i=0;
         while($row=mysqli_fetch_assoc($r)){
           $rowClass=(($i%2==0) ? "even" : "odd");
@@ -24,24 +38,25 @@
           $noun=$row['noun_one'];
             echo"
               <tr class='$rowClass'>
-                <th>
+                <td >
                   <input type='radio' name='mlid' value='$mlid'\>
-                </th>
-                <th>Jack and the $noun</th>
+                </td>
+                <td colspan='3'>Jack and the $noun</th>
+
               </tr>";
             $i++;
           }
-        } else {
-            echo "
-						<tr>
-            	<th>No MadLibs found for this user</th>
-            </tr>";
         }
       ?>
+		</br></br>
       <tr>
-				<th><input type="submit" class="button" name="updateMadLib" value="View MadLib" /></th>
-	      <th><input type="submit" class="button" name="updateMadLib" value="Delete" /></th>
-	      <th><input type="submit" class="button" name="updateMadLib" value="New MadLib" /></th>
+				<td><input type="submit" class="button" name="updateMadLib" value="New MadLib" /></td>
+				<?php if($numMadLibs>0){
+					echo "
+					<td><input type='submit' class='button' name='updateMadLib' value='View MadLib' /></td>
+		      <td><input type='submit' class='button' name='updateMadLib' value='Delete' /></td>
+					<td><input type='reset' class='button' /></td>";
+				} ?>
 			</tr>
   </table>
 </fieldset>

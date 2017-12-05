@@ -40,7 +40,7 @@ header {
   text-align: center;
   width: 100%;
   font-family: 'Luckiest Guy', cursive;
-  color: #f9f5d7;
+  color: #cc241d;
   background-color: #282828;
 }
 header h1{
@@ -96,6 +96,56 @@ footer{
 }
 footer h5{
   color: color: #f9f5d7;;
+}
+
+.even{
+  background-color: #ebdbb2;
+}
+.odd{
+  background-color: #a89984;
+}
+tr{
+  width:50%;
+}
+form {
+  font-family: 'Kreon', serif;
+  color: #665c54;
+}
+
+table{
+  width: 100%;
+}
+.surveyResults th{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 1em;
+}
+input {
+  background-color: #ebdbb2;
+  border-color: #665c54;
+  border-radius: 10px;
+  border-width: medium;
+  border-style: solid;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  margin-bottom: 0.5em;
+  width: 60%;
+  font-family: 'Kreon', serif;
+  font-size: 1em;
+  color: #665c54;
+}
+.button{
+  background-color: #427b58;
+    color: #ebdbb2;
+  border-radius: 10px;
+  border-width: medium;
+  border-style: solid;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  margin-bottom: 0.5em;
+  width: 45%;
+  font-family: 'Kreon', serif;
+  font-size: 1em;
 }
 
 

@@ -1,13 +1,14 @@
 <?php	session_start();
 	 $action=$_POST['action'];
+	 $email=$_POST['uname'];
+	 $passwd=$_POST['passwd'];
 
 		switch ($action) {
  		case 'LogIn':
-			logIn('index.php');
+			logIn($email, $passwd, 'index.php');
 			break;
  		case 'Create':
-			$email=$_POST['uname'];
-			$passwd=$_POST['passwd'];
+			$email=$_POST['email'];
  			$firstName=$_POST['fName'];
  			$lastName=$_POST['lName'];
  			//insert user
@@ -15,11 +16,10 @@
  			$sql="INSERT INTO cjohnson_qu5773oo.User(USR_FIRST_NAME, USR_LAST_NAME, USR_EMAIL, USR_PASSWORD) VALUES('$firstName', '$lastName', '$email', '$passwd')";
  			$r=mysqli_query($conn, $sql);
  			if($r){
- 				logIn();
- 				header('Location:profile.php');
- 			} else {
+				logIn($email, $passwd, 'newUser.php');
+			} else {
  				$_SESSION['errMsg'] = "<p class=\'err\'>Error creating user</p><p>$sql</p>";
- 				logIn('newUser.php');
+				header('Location:newUser.php');
  			}
  			break;
  		default:
@@ -28,9 +28,7 @@
  			break;
 		}
 
-	function logIn($originPage){
-		$email=$_POST['uname'];
-		$passwd=$_POST['passwd'];
+	function logIn($email, $passwd, $originPage){
 		//select user from db
 		require '../SQL_CONNECT.php';
 		$sql="SELECT USR_ID as uid, USR_FIRST_NAME as fn, USR_LAST_NAME as ln FROM cjohnson_qu5773oo.User WHERE USR_EMAIL='$email' AND USR_PASSWORD='$passwd'";
@@ -44,7 +42,14 @@
 
 			header('Location:profile.php');
 		} else {
-			$_SESSION['errMsg'] = "<p class=\'err\'>Incorrect Username or Password</p><p>if you need to creat a New User <a href='newUser.php'>Click Here</a>.</p>";
+			switch($originPage){
+				case 'index.php':
+					$_SESSION['errMsg'] = "<p class=\'err\'>Incorrect Username or Password</p><p>if you need to create a New User <a href='newUser.php'>Click Here</a>.</p>";
+					break;
+				case 'newUser.php':
+					$_SESSION['errMsg'] = "<p class=\'err\'>Error loggin into new user</p><p>$sql</p>";
+					break;
+			}
 			header('Location:'.$originPage);
 		}
 	}

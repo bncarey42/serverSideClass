@@ -99,6 +99,7 @@
 			$lname = $row['ln'];
 			$_SESSION['uname'] = $fname." ".$lname;
 			header('Location:profile.php');
+			$_SESSION['loggedIn']=true;
 		} else {
 			$_SESSION['errMsg'] = "<p class=\'err\'>Error creating user</p>";
 			header('Location:$originPage');

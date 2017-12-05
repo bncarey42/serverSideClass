@@ -6,17 +6,17 @@
 
   switch($action){
     case 'Submit MadLib':
-      $plural_noun_one = mysqli_real_escape_string($conn, $_POST['plural_noun_one']);
-      $plural_noun_two = mysqli_real_escape_string($conn, $_POST['plural_noun_two']);
-      $adjective_one = mysqli_real_escape_string($conn, $_POST['adjective_one']);
-      $noun_one = mysqli_real_escape_string($conn, $_POST['noun_one']);
-      $adjective_two = mysqli_real_escape_string($conn, $_POST['adjective_two']);
-      $adjective_three =  mysqli_real_escape_string($conn, $_POST['adjective_three']);
-      $verb =  mysqli_real_escape_string($conn, $_POST['verb']);
-      $body_part =  mysqli_real_escape_string($conn, $_POST['body_part']);
-      $adjective_four =  mysqli_real_escape_string($conn, $_POST['adjective_four']);
-      $number =  mysqli_real_escape_string($conn, $_POST['number']);
-      $noun_two =  mysqli_real_escape_string($conn, $_POST['noun_two']);
+      $plural_noun_one =$_POST['plural_noun_one'];
+      $plural_noun_two =$_POST['plural_noun_two'];
+      $adjective_one =$_POST['adjective_one'];
+      $noun_one =$_POST['noun_one'];
+      $adjective_two =$_POST['adjective_two'];
+      $adjective_three =$_POST['adjective_three'];
+      $verb =$_POST['verb'];
+      $body_part =$_POST['body_part'];
+      $adjective_four =$_POST['adjective_four'];
+      $number =$_POST['number'];
+      $noun_two =$_POST['noun_two'];
 
       $madLib="Jack and his mother were so poor that they only had two old $plural_noun_one. Jack's mother sent him to the
         market to sell them for some $plural_noun_two. Jack ran into a $adjective_one women and traded her for some magic

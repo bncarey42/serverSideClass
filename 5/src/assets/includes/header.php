@@ -8,6 +8,10 @@
     <meta charset="utf-8">
     <title></title>
     <?php
+      
+      if(isset($_SESSION['loggedOn']) && !$_SESSION['loggedOn'){
+        echo "<meta http-equiv='refresh' content='0; url=logOff.php' />"
+      }
       foreach ($styleFiles as $styleFile) {
         echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"assets/style/$styleFile.css\" />";
       }

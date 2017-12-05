@@ -73,7 +73,7 @@
 			$lastName=mysqli_real_escape_string($con, $_POST['lName']);
 			//insert user
 			require '../SQL_CONNECT.php';
-			$sql="INSERT INTO cjohnson_qu5773oo.User(USR_FIRST_NAME, USR_LAST_NAME, USR_EMAIL, USR_PASSWORD) VALUES('$firstName', '$lastName', '$email', '$passwd')";
+			$sql="INSERT INTO cjohnson_qu5773oo.User(USR_FIRST_NAME, USR_LAST_NAME, USR_EMAIL, USR_PASSWORD) VALUES('$firstName', '$lastName', '$email', SHA1('$passwd'))";
 			$r=mysqli_query($conn, $sql);
 			if($r){
 				logIn('newUser.php');

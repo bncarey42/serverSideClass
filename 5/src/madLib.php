@@ -66,7 +66,7 @@
         $deleteMadLib="DELETE FROM cjohnson_qu5773oo.MadLib WHERE MadLib_ID='$mlid'";
         $r = @mysqli_query($conn, $deleteMadLib);
         if($r) {
-            $_SESSION['msg']=$mlid.' Gaze upon this mad MadLib one last time before it is cast into the void and deleted forever';
+            $_SESSION['msg']=' Gaze upon this mad MadLib one last time before it is cast into the void and deleted forever';
         } else {
             $_SESSION['msg']="<h3 class='error'>There was an error removing the Mad Lib from your account please return to your profile and try again</h3>";
         }

@@ -6,7 +6,6 @@
 		echo $_SESSION['msg'];
     $_SESSION['msg'] = "";
 	}
-	echo $_SESSION['uid'];
   echo"<h1>Hello $uname</h1>";
 ?>
 

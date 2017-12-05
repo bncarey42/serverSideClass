@@ -1,4 +1,5 @@
-<?php session_start();?>
+<?php session_start();
+      session_destroy();?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -8,4 +9,3 @@
 <p>You are being logged of</p>
 </body>
 </html>
-<?php session_destroy();?>

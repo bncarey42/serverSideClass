@@ -14,7 +14,7 @@
 				$_SESSION['uid'] = $row['uid']+1;
 				$fname = $row['fname'];
 				$lname = $row['lname'];
-				$_SESSION['uname'] = $fname." ".$lname;
+				$_SESSION['uname'] = "$fname $lname";
 				header('Location:profile.php');
 			} else {
 				$_SESSION['errMsg'] = "<p class=\'err\'>Incorrect Username or Password</p><p>if you need to creat a New User <a href='newUser.php'>Click Here</a>.</p>";
@@ -40,7 +40,7 @@
 					$_SESSION['uid'] = $row['uid']+1;
 					$fname = $row['fn'];
 					$lname = $row['ln'];
-					$_SESSION['uname'] = $fname." ".$lname;
+					$_SESSION['uname'] = "$fname $lname";
 					header('Location:profile.php');
 				} else {
 					$_SESSION['errMsg'] = "<p class=\'err\'>Error creating user</p>";

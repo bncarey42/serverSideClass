@@ -31,9 +31,9 @@
       $insertMadLib="INSERT INTO cjohnson_qu5773oo.MadLib(USER_ID, Plural_Noun_One,
         Plural_Noun_Two, Adjective_One, Noun_One, Adjective_Two, Adjective_Three,
         Verb, Body_Part, Adjective_Four, Number, Noun_Two)
-        VALUES ($uid, '$plural_noun_one', '$plural_noun_two', '$adjective_one',
+        VALUES ('$uid', '$plural_noun_one', '$plural_noun_two', '$adjective_one',
           '$noun_one', '$adjective_two', '$adjective_three', '$verb', '$body_part',
-          '$adjective_four', $number, '$noun_two')";
+          '$adjective_four', '$number', '$noun_two')";
       $r = @mysqli_query($conn, $insertMadLib);
       if($r) {
         getMsg();

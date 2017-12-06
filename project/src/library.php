@@ -23,8 +23,8 @@
       $viewDetail = getPlaylists();
       break;
     default:
-      $viewDetail = 'Songs';
-      $songs = getAllSongs();
+      $title = 'Songs';
+      $viewDetail = getAllSongs();
       break;
   }
 ?>

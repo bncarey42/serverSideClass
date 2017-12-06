@@ -3,25 +3,30 @@
   $view=$_POST['libView'];
 ?>
 <form action='library.php' method='post'>
-  <input type='submit' name='library.php' class='button' value='Songs'/>
-  <input type='submit' name='library.php' class='button' value='Albums'/>
-  <input type='submit' name='library.php' class='button' value='Artists'/>
-  <input type='submit' name='library.php' class='button' value='Playlists'/>
+  <input type='submit' name='libView' class='button' value='Songs'/>
+  <input type='submit' name='libView' class='button' value='Albums'/>
+  <input type='submit' name='libView' class='button' value='Artists'/>
+  <input type='submit' name='libView' class='button' value='Playlists'/>
 </form>
 <?php
   switch($view){
     case 'Albums':
-      $albums = getAllAlbums();
+      $title = 'Albums';
+      $viewDetail = getAllAlbums();
       break;
     case 'Artists':
-      $artists=getAllAlbumsForArtist();
+      $title = 'Artists';
+      $viewDetail=getAllAlbumsForArtist();
       break;
     case 'Playlist':
-      $playlist = getPlaylists();
+      $title = 'Playlists';
+      $viewDetail = getPlaylists();
       break;
     default:
+      $viewDetail = 'Songs';
       $songs = getAllSongs();
       break;
   }
-
-  include('assets/includes/footer.php'); ?>
+?>
+  <h2><?php echo"$title"; ?></h2>
+<? include('assets/includes/footer.php'); ?>

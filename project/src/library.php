@@ -30,16 +30,17 @@
   }
 ?>
   <h2><?php echo"$title"; ?></h2>
+  <form action='<<<>>>.php' method='POST'>
   $i=0;
   foreach($viewDetail as $id->$name){
     $rowClass=(($i%2==0) ? "even" : "odd");
     echo"
       <tr class='$rowClass'>
-        <td >
-      <input type='checkbox' name='id' value='$id'\>
-        </td>
-      <td>$name</th>
+        <td ><input type='checkbox' name='id' value='$id'\></td>
+        <td>$name</td>
+        <td><!--add $title to playNow, add $title to playlist --></td>
       </tr>";
       $i++;
     }
-<? include('assets/includes/footer.php'); ?>
+  </form>
+<php? include('assets/includes/footer.php'); ?>

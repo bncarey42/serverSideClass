@@ -44,6 +44,14 @@ function getAllSongs(){
     return $songs;
 }
 
+function getArtistForSong($songID){
+	return ;
+}
+
+fucntion getAlbumForSong(){
+	return ;
+}
+
 function getSongsForAlbum($albumID){
     return ;
 }
@@ -59,7 +67,6 @@ function getSongsforPlaylist($playlistID){
 function addSongToPlayList($songID, $playlistID){
 
 }
-
 
 function addAlbumToPlaylist(){
 

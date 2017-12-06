@@ -13,17 +13,27 @@ function getAllAlbumsForArtist(){
 }
 
 function getPlaylists(){
-    return ;
+	$playlists = array();
+	$uid=$_SESSION['uid'];
+	$sql="SELECT p.playlist_name AS playlistName, p.playlist_ID AS playlistID
+				FROM cjohnson_qu5773oo.Player_Playlist p
+					join cjohnson_qu5773oo.Player_User_Playlist up on p.playlist_id = up.playlist_id
+				WHERE up.user_ID = $uid";
+	$result=@mysqli_query($conn, $sql);
+	if($result){
+      $playlists = mysqli_fetch_array($result, MYSQLI_ASSOC);
+    }
+    return $playlists;
 }
 
 function getAllSongs(){
     $songs = array();
     $uid=$_SESSION['uid'];
-    $sql="SELECT s.song_title AS SongTitle
+    $sql="SELECT s.song_title AS songTitle, s.song_ID AS songID
           FROM cjohnson_qu5773oo.Player_Song s
 	         join cjohnson_qu5773oo.Player_User_Songs us on us.song_id = s.song_id
            join cjohnson_qu5773oo.User u on us.user_id = u.USR_ID
-          WHERE u.USR_ID=?";
+          WHERE u.USR_ID=$uid";
     require '../SQL_CONNECT.php';
 
     $result=@mysqli_query($conn, $sql);

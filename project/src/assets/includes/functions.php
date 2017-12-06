@@ -4,6 +4,7 @@ function getCurrentSongURL($currentSet){
 
     return $curentSongURL;
 }
+
 function getAllAlbums(){
     return ;
 }
@@ -15,7 +16,7 @@ function getAllAlbumsForArtist(){
 function getPlaylists(){
 	$playlists = array();
 	$uid=$_SESSION['uid'];
-	$sql="SELECT p.playlist_name AS playlistName, p.playlist_ID AS playlistID
+	$sql="SELECT p.playlist_ID AS playlistID, p.playlist_name AS playlistName
 				FROM cjohnson_qu5773oo.Player_Playlist p
 					join cjohnson_qu5773oo.Player_User_Playlist up on p.playlist_id = up.playlist_id
 				WHERE up.user_ID = $uid";
@@ -29,7 +30,7 @@ function getPlaylists(){
 function getAllSongs(){
     $songs = array();
     $uid=$_SESSION['uid'];
-    $sql="SELECT s.song_title AS songTitle, s.song_ID AS songID
+    $sql="SELECT s.song_ID AS songID, s.song_title AS songTitle
           FROM cjohnson_qu5773oo.Player_Song s
 	         join cjohnson_qu5773oo.Player_User_Songs us on us.song_id = s.song_id
            join cjohnson_qu5773oo.User u on us.user_id = u.USR_ID

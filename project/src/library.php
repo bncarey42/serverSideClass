@@ -1,7 +1,14 @@
 <?php
-include('assets/includes/header.php');
+  include('assets/includes/header.php');
   $view=$_POST['libView'];
-
+?>
+<form action='library.php' method='post'>
+  <input type='submit' name='library.php' class='button' value='Songs'/>
+  <input type='submit' name='library.php' class='button' value='Albums'/>
+  <input type='submit' name='library.php' class='button' value='Artists'/>
+  <input type='submit' name='library.php' class='button' value='Playlists'/>
+</form>
+<?php
   switch($view){
     case 'Albums':
       $albums = getAllAlbums();
@@ -16,11 +23,5 @@ include('assets/includes/header.php');
       $songs = getAllSongs();
       break;
   }
-?>
-<form action='library.php' method='post'>
-  <input type='submit' name='library.php' value='Songs'/>
-  <input type='submit' name='library.php' value='Albums'/>
-  <input type='submit' name='library.php' value='Artists'/>
-  <input type+'submit' name='library.php' value='Playlists'/>
-</form>
-<?php include('assets/includes/footer.php'); ?>
+
+  include('assets/includes/footer.php'); ?>

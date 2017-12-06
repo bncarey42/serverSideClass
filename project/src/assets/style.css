@@ -2,7 +2,7 @@ body{
   color: #ebdbb2;
   background-color: #282828;
   margin: -1px;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Comfortaa', cursive;
 }
 a:hover{
   color: #83a598;
@@ -11,8 +11,8 @@ a:hover{
   background-color: #83a598;
   padding-top: 3px;
   position: fixed;
-    bottom: 0;
-    width: 75%;
+  bottom: 0;
+  width: 75%;
   z-index: 0;
 }
 audio{
@@ -25,9 +25,20 @@ audio{
   height: 100%;
   background-color: #1d2021;
   text-align: center;
-  font-family: 'Ubuntu Condensed', sans-serif;
 }
 .playlist ul{
   list-style: none;
   text-transform: capitalize;
+}
+.button{
+  background-color: #427b58;
+  color: #ebdbb2;
+  border-color: #ebdbb2;
+  border-width: thin;
+  border-radius: 10px;
+  border-width: medium;
+  border-style: solid;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  margin-bottom: 0.5em;
 }

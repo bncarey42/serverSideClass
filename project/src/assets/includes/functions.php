@@ -49,7 +49,7 @@ function getArtistForSong($songID){
 	return ;
 }
 
-fucntion getAlbumForSong(){
+function getAlbumForSong(){
 	return ;
 }
 

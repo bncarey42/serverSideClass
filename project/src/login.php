@@ -23,7 +23,6 @@
  			}
  			break;
  		default:
- 				$_SESSION['errMsg'] = "<p class=\'err\'>Error logging in</p>";
  				header('Location:logOn.php');
  			break;
 		}
@@ -48,7 +47,7 @@
 					$_SESSION['errMsg'] = "<p class=\'err\'>Incorrect Username or Password</p><p>if you need to create a New User <a href='newUser.php'>Click Here</a>.</p>";
 					break;
 				case 'newUser.php':
-					$_SESSION['errMsg'] = "<p class=\'err\'>Error loggin into new user</p><p>$sql</p>";
+					$_SESSION['errMsg'] = "<p class=\'err\'>Error loggin into new user</p>";
 					break;
 			}
 			header('Location:'.$originPage);

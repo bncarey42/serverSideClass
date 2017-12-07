@@ -3,16 +3,18 @@
 <head>
   <title>PHPlayer</title>
   <link rel="stylesheet" type="text/css" href="assets/style.css" />
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Condensed" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
 </head>
 <body>
-  <section class="topBar">
-    <table>
+    <table class="topBar">
       <tr>
-        <td class="topLeft">PHPLAYER</td>
-        <td class="topRight"><?php if($_SESSION['loggedOn']){echo "<h4>Hello $_SESSION['$uname']! Click Here to <a href='logOff.php'>Log Off</a>.</h4>";} ?> </td>
+        <td id='topLeft'><h2>PHPLAYER</h2></td>
+        <td id='topRight'>
+          <?php if($_SESSION['loggedOn']){
+          $userName=$_SESSION['uname'];
+          echo "
+            <h5>Hello $userName! <a href='logOff.php'>Click Here</a> to Log Off.</h5>";
+        } ?></td>
       </tr>
     </table>
-  </section>
   <center>

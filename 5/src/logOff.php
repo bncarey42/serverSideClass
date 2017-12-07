@@ -6,6 +6,6 @@
 <meta http-equiv="refresh" content="3; url=index.php" />
 </head>
 <body>
-<p>You are being logged of</p>
+<p>You are being logged off</p>
 </body>
 </html>

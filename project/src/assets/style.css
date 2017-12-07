@@ -1,8 +1,45 @@
 body{
   color: #ebdbb2;
-  background-color: #282828;
+  background-color: #504945;
   margin: -1px;
   font-family: 'Comfortaa', cursive;
+}
+a{
+  color: darkseagreen;
+}
+a:hover{
+  color: mediumseagreen;
+}
+.topBar{
+  background-color: #282828;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: seagreen;
+  height: 1em;
+  padding-left: 5%;
+  padding-right: 5%;
+  width: 100%;
+}
+.topBar table{
+  background-color: #ebdbb2;
+}
+#topLeft{
+  text-align: left;
+  width: 50%;
+  padding: 0px;
+}
+#topRight{
+  text-align: right;
+  width: 50%;
+}
+center{
+  background-color: #282828;
+  max-width: 75%;
+  margin:auto;
+  margin-top: 0px;
+  margin-bottom: 2em;
+  padding-top: 1em;
+  height: 100%;
 }
 a:hover{
   color: #83a598;
@@ -30,15 +67,35 @@ audio{
   list-style: none;
   text-transform: capitalize;
 }
-.button{
-  background-color: #427b58;
-  color: #ebdbb2;
-  border-color: #ebdbb2;
-  border-width: thin;
+input{
+  background-color: #ebdbb2;
+  border-color: #282828;
   border-radius: 10px;
-  border-width: medium;
+  border-width: thin;
   border-style: solid;
   padding-top: 0.5em;
   padding-bottom: 0.5em;
   margin-bottom: 0.5em;
+  font-size: 1em;
+  color: #665c54;
+}
+.button{
+  background-color: seagreen;
+  color: #ebdbb2;
+  border-color: #ebdbb2;
+  border-width: thin;
+  border-radius: 10px;
+  border-width: thin;
+  border-style: solid;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  margin-bottom: 0.5em;
+  font-family: 'Comfortaa', cursive;
+  width: 50%;
+}
+.button:hover{
+  background-color: darkseagreen;
+}
+.libView .button{
+  width: 24%;
 }

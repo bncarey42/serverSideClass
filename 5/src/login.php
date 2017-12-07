@@ -5,7 +5,7 @@
 
 		switch ($action) {
  		case 'LogIn':
-			logIn($email, $passwd, 'index.php');
+			logIn($email, $passwd, 'logOn.php');
 			break;
  		case 'Create':
 			$email=$_POST['email'];
@@ -24,7 +24,7 @@
  			break;
  		default:
  				$_SESSION['errMsg'] = "<p class=\'err\'>Error logging in</p>";
- 				header('Location:index.php');
+ 				header('Location:logOn.php');
  			break;
 		}
 
@@ -39,11 +39,12 @@
 			$fname = $row['fn'];
 			$lname = $row['ln'];
 			$_SESSION['uname'] = "$fname $lname";
-
-			header('Location:profile.php');
+			$_SESSION['loggedOn']=TRUE;
+			header('Location:library.php');
 		} else {
+			$_SESSION['loggedOn']=FALSE;
 			switch($originPage){
-				case 'index.php':
+				case 'logOn.php':
 					$_SESSION['errMsg'] = "<p class=\'err\'>Incorrect Username or Password</p><p>if you need to create a New User <a href='newUser.php'>Click Here</a>.</p>";
 					break;
 				case 'newUser.php':

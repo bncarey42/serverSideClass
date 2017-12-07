@@ -2,7 +2,7 @@
   include('assets/includes/header.php');
   $view=$_POST['libView'];
 ?>
-<form action='library.php' method='post'>
+<form class='libView' action='library.php' method='post'>
   <input type='submit' name='libView' class='button' value='Songs'/>
   <input type='submit' name='libView' class='button' value='Albums'/>
   <input type='submit' name='libView' class='button' value='Artists'/>
@@ -19,7 +19,7 @@
       $title = 'Artists';
       $viewDetail=getAllAlbumsForArtist();
       break;
-    case 'Playlist':
+    case 'Playlists':
       $title = 'Playlists';
       $viewDetail = getPlaylists();
       break;
@@ -31,16 +31,18 @@
 ?>
   <h2><?php echo"$title"; ?></h2>
   <form action='<<<>>>.php' method='POST'>
-  $i=0;
-  foreach($viewDetail as $id->$name){
-    $rowClass=(($i%2==0) ? "even" : "odd");
-    echo"
-      <tr class='$rowClass'>
-        <td ><input type='checkbox' name='id' value='$id'\></td>
-        <td>$name</td>
-        <td><!--add $title to playNow, add $title to playlist --></td>
-      </tr>";
-      $i++;
-    }
+  <?php
+    $i=0;
+    foreach($viewDetail as $name){
+      $rowClass=(($i%2==0) ? "even" : "odd");
+      echo"
+        <tr class='$rowClass'>
+          <td ><input type='checkbox' name='id' value='$id'\></td>
+          <td>$name</td>
+          <td><!--add $title to playNow, add $title to playlist --></td>
+        </tr>";
+        $i++;
+      }
+    ?>
   </form>
-<php? include('assets/includes/footer.php'); ?>
+<?php include('assets/includes/footer.php'); ?>

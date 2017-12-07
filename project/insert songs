@@ -1,0 +1,93 @@
+ARTISTS
+insert into cjohnson_qu5773oo.Player_Artist(artist_name) values('Paper Navy');
+insert into cjohnson_qu5773oo.Player_Artist(artist_name) values('Podington Bear');
+insert into cjohnson_qu5773oo.Player_Artist(artist_name) values('Robin Grey');
+
+
+ALBUMS
+insert into cjohnson_qu5773oo.Player_Album(album_title, artist_Id) values ('Strangers With Shoes', (select artist_id from cjohnson_qu5773oo.Player_Artist where artist_name='Robin Grey'));
+insert into cjohnson_qu5773oo.Player_Album(album_title, artist_Id) values ('Only The Missile', (select artist_id from cjohnson_qu5773oo.Player_Artist where artist_name='Robin Grey'));
+insert into cjohnson_qu5773oo.Player_Album(album_title, artist_Id) values ('All Grown Up', (select artist_id from cjohnson_qu5773oo.Player_Artist where artist_name='Paper Navy'));
+insert into cjohnson_qu5773oo.Player_Album(album_title, artist_Id) values ('Backbeat', (select artist_id from cjohnson_qu5773oo.Player_Artist where artist_name='Podington Bear'));
+insert into cjohnson_qu5773oo.Player_Album(album_title, artist_Id) values ('Piano IV: Cinematic', (select artist_id from cjohnson_qu5773oo.Player_Artist where artist_name='Podington Bear'));
+insert into cjohnson_qu5773oo.Player_Album(album_title, artist_Id) values ('Passages', (select artist_id from cjohnson_qu5773oo.Player_Artist where artist_name='Podington Bear'));
+
+
+
+
+
+--album  Artisit
+--'3', '1', 'All Grown Up' -paper navy
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values('Swan Song',1, 3, 'assets/music/Paper_Navy_-_All_Grown_Up/Paper_Navy_-_08_-_Swan_Song.mp3');
+
+--'2', '3', 'Only The Missile' -robin Grey
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values('Five', 2, 3, 'assets/music/Robin Grey - Only The Missile/10 - Five.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values('Swan Song', 2, 3, 'assets/music/Robin Grey - Only The Missile/09 - Swan Song.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values('Only The Missile', 2, 3, 'assets/music/Robin Grey - Only The Missile/08 - Only The Missile.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values('Women', 2, 3, 'assets/music/Robin Grey - Only The Missile/07 - Women.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values('The Finchley Waltz', 2, 3, 'assets/music/Robin Grey - Only The Missile/06 - The Finchley Waltz.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values('Every Waking Hour', 2, 3, 'assets/music/Robin Grey - Only The Missile/05 - Every Waking Hour.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values('Somewhere', 2, 3, 'assets/music/Robin Grey - Only The Missile/04 - Somewhere.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values('Your Man', 2, 3, 'assets/music/Robin Grey - Only The Missile/03 - Your Man.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values('The Last Time I Saw David', 2, 3, 'assets/music/Robin Grey - Only The Missile/02 - The Last Time I Saw David.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values('These Days', 2, 3, 'assets/music/Robin Grey - Only The Missile/01 - These Days.mp3');
+
+
+--'1', '3', 'Strangers With Shoes' -robin Grey
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values( 'Roses From Africa' ,1, 3, 'assets/music/Robin Grey - Strangers With Shoes/08 - Roses From Africa.mp3');'
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values( 'Ninety Days' ,1, 3, 'assets/music/Robin Grey - Strangers With Shoes/07 - Ninety Days.mp3');'
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values( 'Shakes Shudders' ,1, 3, 'assets/music/Robin Grey - Strangers With Shoes/06 - Shakes Shudders.mp3');'
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values( 'Montreal' ,1, 3, 'assets/music/Robin Grey - Strangers With Shoes/05 - Montreal.mp3');'
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values( 'The Suitors Ballyhoo' ,1, 3, 'assets/music/Robin Grey - Strangers With Shoes/04 - The Suitors Ballyhoo.mp3');'
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values( 'I Love Leonard Cohen' ,1, 3, 'assets/music/Robin Grey - Strangers With Shoes/03 - I Love Leonard Cohen.mp3');'
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values( 'Till Dawn' ,1, 3, 'assets/music/Robin Grey - Strangers With Shoes/02 - Till Dawn.mp3');'
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values( 'Younger Looking Skin' ,1, 3, 'assets/music/Robin Grey - Strangers With Shoes/01 - Younger Looking Skin.mp3');'
+
+
+--''6', '2', 'Passages'-Podington Bear '
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values( 'Window_Shopping', 6, 2, 'assets/music/Podington_Bear_-_Passages/Podington_Bear_-_Window_Shopping.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values( 'The_Gall', 6, 2, 'assets/music/Podington_Bear_-_Passages/Podington_Bear_-_The_Gall.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values( 'The_Confrontation', 6, 2, 'assets/music/Podington_Bear_-_Passages/Podington_Bear_-_The_Confrontation.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values( 'So_It_Goes', 6, 2, 'assets/music/Podington_Bear_-_Passages/Podington_Bear_-_So_It_Goes.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values( 'Miss_You', 6, 2, 'assets/music/Podington_Bear_-_Passages/Podington_Bear_-_Miss_You.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values( 'Mello_D', 6, 2, 'assets/music/Podington_Bear_-_Passages/Podington_Bear_-_Mello_D.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values( 'Kaleidoscope', 6, 2, 'assets/music/Podington_Bear_-_Passages/Podington_Bear_-_Kaleidoscope.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values( 'Ice_Pack', 6, 2, 'assets/music/Podington_Bear_-_Passages/Podington_Bear_-_Ice_Pack.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values( 'Holding_On', 6, 2, 'assets/music/Podington_Bear_-_Passages/Podington_Bear_-_Holding_On.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values( 'Cake', 6, 2, 'assets/music/Podington_Bear_-_Passages/Podington_Bear_-_Cake.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values( 'Boardwalk', 6, 2, 'assets/music/Podington_Bear_-_Passages/Podington_Bear_-_Boardwalk.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values( 'Aim_Is_True', 6, 2, 'assets/music/Podington_Bear_-_Passages/Podington_Bear_-_Aim_Is_True.mp3');
+
+
+--''5', '2', 'Piano IV: Cinematic' -Podington Bear '
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values('Winter_Walk', 5, 2, 'assets/music/Podington_Bear_-_Piano_IV_Cinematic/Podington_Bear_-_Winter_Walk.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values('Up_Up_Up', 5, 2, 'assets/music/Podington_Bear_-_Piano_IV_Cinematic/Podington_Bear_-_Up_Up_Up.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values('Tumbledown', 5, 2, 'assets/music/Podington_Bear_-_Piano_IV_Cinematic/Podington_Bear_-_Tumbledown.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values('Threshold', 5, 2, 'assets/music/Podington_Bear_-_Piano_IV_Cinematic/Podington_Bear_-_Threshold.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values('Storm_Passing', 5, 2, 'assets/music/Podington_Bear_-_Piano_IV_Cinematic/Podington_Bear_-_Storm_Passing.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values('Solemn_Oath', 5, 2, 'assets/music/Podington_Bear_-_Piano_IV_Cinematic/Podington_Bear_-_Solemn_Oath.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values('Pounded_Piano', 5, 2, 'assets/music/Podington_Bear_-_Piano_IV_Cinematic/Podington_Bear_-_Pounded_Piano.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values('Paper_Boat', 5, 2, 'assets/music/Podington_Bear_-_Piano_IV_Cinematic/Podington_Bear_-_Paper_Boat.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values('Lens_Flare', 5, 2, 'assets/music/Podington_Bear_-_Piano_IV_Cinematic/Podington_Bear_-_Lens_Flare.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values('Indian_Paintbrush', 5, 2, 'assets/music/Podington_Bear_-_Piano_IV_Cinematic/Podington_Bear_-_Indian_Paintbrush.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values('Cloudbank', 5, 2, 'assets/music/Podington_Bear_-_Piano_IV_Cinematic/Podington_Bear_-_Cloudbank.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values('Box_Canyon', 5, 2, 'assets/music/Podington_Bear_-_Piano_IV_Cinematic/Podington_Bear_-_Box_Canyon.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values('Bittersweet', 5, 2, 'assets/music/Podington_Bear_-_Piano_IV_Cinematic/Podington_Bear_-_Bittersweet.mp3');
+
+--''4', '2', 'Backbeat' -Podington Bear '
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values('Uhhp', 4, 2, 'assets/music/Podington_Bear_-_Backbeat/Podington_Bear_-_Uhhp.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values('Sonstiges', 4, 2, 'assets/music/Podington_Bear_-_Backbeat/Podington_Bear_-_Sonstiges.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values('Saunter', 4, 2, 'assets/music/Podington_Bear_-_Backbeat/Podington_Bear_-_Saunter.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values('Old_Skin', 4, 2, 'assets/music/Podington_Bear_-_Backbeat/Podington_Bear_-_Old_Skin.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values('Melodramatic_Band', 4, 2, 'assets/music/Podington_Bear_-_Backbeat/Podington_Bear_-_Melodramatic_Band.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values('Low_Jack', 4, 2, 'assets/music/Podington_Bear_-_Backbeat/Podington_Bear_-_Low_Jack.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values('Logjam', 4, 2, 'assets/music/Podington_Bear_-_Backbeat/Podington_Bear_-_Logjam.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values('Lime_Beat', 4, 2, 'assets/music/Podington_Bear_-_Backbeat/Podington_Bear_-_Lime_Beat.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values('Has_Pluck', 4, 2, 'assets/music/Podington_Bear_-_Backbeat/Podington_Bear_-_Has_Pluck.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values('Fingernail_Grit', 4, 2, 'assets/music/Podington_Bear_-_Backbeat/Podington_Bear_-_Fingernail_Grit.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values('Enrichment', 4, 2, 'assets/music/Podington_Bear_-_Backbeat/Podington_Bear_-_Enrichment.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values('Dolce_Beat', 4, 2, 'assets/music/Podington_Bear_-_Backbeat/Podington_Bear_-_Dolce_Beat.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values('Budsbursting_20', 4, 2, 'assets/music/Podington_Bear_-_Backbeat/Podington_Bear_-_Budsbursting_20.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values('Blossoming', 4, 2, 'assets/music/Podington_Bear_-_Backbeat/Podington_Bear_-_Blossoming.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values('Big_Poppa', 4, 2, 'assets/music/Podington_Bear_-_Backbeat/Podington_Bear_-_Big_Poppa.mp3');
+insert into cjohnson_qu5773oo.Player_Song(song_title, artist_ID, album_ID, song_url) values('Back_Stairs', 4, 2, 'assets/music/Podington_Bear_-_Backbeat/Podington_Bear_-_Back_Stairs.mp3');

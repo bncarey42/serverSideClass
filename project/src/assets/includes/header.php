@@ -3,7 +3,7 @@
 <head>
   <title>PHPlayer</title>
   <link rel="stylesheet" type="text/css" href="assets/style.css" />
-  <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa|Ubuntu" rel="stylesheet">
 </head>
 <body>
     <table class="topBar">

@@ -3,22 +3,12 @@
   $view=$_POST['libView'];
 ?>
 <form class='libView' action='library.php' method='post'>
-  <input type='submit' name='libView' class='button' value='Songs'/>
-  <input type='submit' name='libView' class='button' value='Albums'/>
-  <input type='submit' name='libView' class='button' value='Artists'/>
+  <input type='submit' name='libView' class='button' value='All Songs'/>
   <input type='submit' name='libView' class='button' value='Playlists'/>
 </form>
 <?php
   $viewDetail = array();
   switch($view){
-    case 'Albums':
-      $title = 'Albums';
-      $viewDetail = getAllAlbums();
-      break;
-    case 'Artists':
-      $title = 'Artists';
-      $viewDetail=getAllAlbumsForArtist();
-      break;
     case 'Playlists':
       $title = 'Playlists';
       $viewDetail = getPlaylists();
@@ -47,13 +37,24 @@
           echo"
             <tr class='$rowClass'>
               <td><input type='checkbox' name='id[]' value='$id'\></td>
-              <td >$name</td>
-              <td >$artist</td>
-              <td >$album</td>
+              <td>$name</td>
+              <td>$artist</td>
+              <td>$album</td>
             </tr>";
             $i++;
           }
         ?>
       </table>
-  </form>
+      <select>
+        <option>New Playlists</option>
+        <?php
+          $playlists=getPlaylists();
+          foreach ($playlists as $id=>$name) {
+            echo "<option>$name</option>";
+          }
+        ?>
+      </select>
+      <input type='submit' class='button' value='Play selected songs now' />
+      <input type='submit' class='button' value='Add selected songs to playlist' />
+    </form>
 <?php include('assets/includes/footer.php'); ?>

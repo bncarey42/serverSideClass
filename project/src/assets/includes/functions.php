@@ -13,7 +13,7 @@ function getAllAlbumsForArtist(){
     return ;
 }
 
-function getPlaylists(){
+function getAllPlaylists(){
 	$playlists = array();
 	$uid=$_SESSION['uid'];
 	$sql="SELECT p.playlist_ID AS playlistID, p.playlist_name AS playlistName
@@ -21,8 +21,10 @@ function getPlaylists(){
 					join cjohnson_qu5773oo.Player_User_Playlist up on p.playlist_id = up.playlist_id
 				WHERE up.user_ID = $uid";
 	$result=@mysqli_query($conn, $sql);
-	if($result){
-      $playlists = mysqli_fetch_array($result, MYSQLI_ASSOC);
+  if($result){
+    while($row=mysqli_fetch_assoc($result)){
+      $playlist[$row['playlistID']]=$playlistName;
+    }
   }
   return $playlists;
 }
@@ -83,7 +85,7 @@ function getSongsforPlaylist($playlistID){
 }
 
 function addSongToPlayList($songID, $playlistID){
-  
+
 }
 
 function addAlbumToPlaylist(){

@@ -11,7 +11,7 @@
 		<tr><td>Password:</td><td><input type='password' name='passwd'/></td></tr>
 		<tr><td></td><td><input type='submit' class='button' name='action' value='LogIn'/></td></tr>
 	</form>
-  <tr style="text-aline: center;"><td colspan=2><p><a href="newUser.php">Click Here to create a new user</a></p></td></tr>
+  <tr><td colspan=2><p><a href="newUser.php">Click Here to create a new user</a></p></td></tr>
 </table>
 
 <?php include('assets/includes/footer.php');?>

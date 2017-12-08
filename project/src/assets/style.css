@@ -33,6 +33,12 @@ a:hover{
   text-align: right;
   width: 50%;
 }
+.header{
+  font-family: 'Ubuntu', sans-serif;
+}
+.songs table{
+  width:75%;
+}
 center{
   background-color: #282828;
   max-width: 75%;
@@ -45,6 +51,7 @@ center{
 footer{
   font-size: 50%;
   font-family: 'Ubuntu', sans-serif;
+  text-align: center;
 }
 a:hover{
   color: #83a598;

@@ -4,7 +4,7 @@
 		echo $_SESSION['errMsg'];
 	}
 ?>
-<a href="index.php" style="text-align: left;"><<< Back To Log In</a>
+<a href="index.php"><<< Back To Log In</a>
 <table>
 	<form action="login.php" method="post">
 		<tr><td>First Name:</td><td><input type="text" name="fName" required/></td></tr>

@@ -4,6 +4,7 @@ insert into cjohnson_qu5773oo.Player_Artist(artist_name) values('Podington Bear'
 insert into cjohnson_qu5773oo.Player_Artist(artist_name) values('Robin Grey');
 
 
+
 ALBUMS
 insert into cjohnson_qu5773oo.Player_Album(album_title, artist_Id) values ('Strangers With Shoes', (select artist_id from cjohnson_qu5773oo.Player_Artist where artist_name='Robin Grey'));
 insert into cjohnson_qu5773oo.Player_Album(album_title, artist_Id) values ('Only The Missile', (select artist_id from cjohnson_qu5773oo.Player_Artist where artist_name='Robin Grey'));

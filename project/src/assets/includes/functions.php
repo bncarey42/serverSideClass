@@ -18,7 +18,7 @@ function getAllPlaylists(){
 	$uid=$_SESSION['uid'];
 	$sql="SELECT p.playlist_ID AS playlistID, p.playlist_name AS playlistName
 				FROM cjohnson_qu5773oo.Player_Playlist p
-					join cjohnson_qu5773oo.Player_User_Playlist up on p.playlist_id = up.playlist_id
+					join cjohnson_qu5773oo.Player_User_Playlists up on p.playlist_id = up.playlist_id
 				WHERE up.user_ID = $uid";
 	$result=@mysqli_query($conn, $sql);
   if($result){

@@ -48,7 +48,7 @@
       <select>
         <option>New Playlists</option>
         <?php
-          $playlists=getPlaylists();
+          $playlists=getAllPlaylists();
           foreach ($playlists as $id=>$name) {
             echo "<option>$name</option>";
           }

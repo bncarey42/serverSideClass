@@ -11,7 +11,7 @@
   switch($view){
     case 'Playlists':
       $title = 'Playlists';
-      $viewDetail = getPlaylists();
+      $viewDetail = getAllPlaylists();
       break;
     default:
       $title = 'Songs';
@@ -32,7 +32,7 @@
         $i=0;
         foreach($viewDetail as $id=>$name){
           $rowClass=(($i%2==0) ? "even" : "odd");
-          $album=getArtistForSong($id);
+          $album=getAlbumForSong($id);
           $artist=getArtistForSong($id);
           echo"
             <tr class='$rowClass'>

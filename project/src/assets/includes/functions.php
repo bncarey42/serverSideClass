@@ -18,12 +18,13 @@ function getAllPlaylists(){
 	$uid=$_SESSION['uid'];
 	$sql="SELECT p.playlist_ID AS playlistID, p.playlist_name AS playlistName
 				FROM cjohnson_qu5773oo.Player_Playlist p
-					join cjohnson_qu5773oo.Player_User_Playlists up on p.playlist_id = up.playlist_id
-				WHERE up.user_ID = $uid";
+					join cjohnson_qu5773oo.Player_User_Playlists up on p.playlist_id=up.playlist_id
+				WHERE up.user_ID='$uid'";
+  require '../SQL_CONNECT.php';
 	$result=@mysqli_query($conn, $sql);
   if($result){
     while($row=mysqli_fetch_assoc($result)){
-      $playlist[$row['playlistID']]=$playlistName;
+      $playlists[$row['playlistID']]=$row['playlistName'];
     }
   }
   return $playlists;
@@ -50,26 +51,31 @@ function getAllSongs(){
 }
 
 function getArtistForSong($songID){
+  $artist = "<<unknown artist>>";
   $sql="SELECT artist_name as artist
-  FROM cjohnson_qu5773oo.Player_artist
-  WHERE ARTIST_id=(select Artist_id FROM cjohnson_qu5773oo.player_sONG where song_id='$songID')";
+  FROM cjohnson_qu5773oo.Player_Artist
+  WHERE ARTIST_id=(select Artist_id FROM cjohnson_qu5773oo.Player_Song where song_id='$songID')";
   require '../SQL_CONNECT.php';
   $result=@mysqli_query($conn, $sql);
   if ($result) {
     $row=mysqli_fetch_assoc($result);
-    return $row['artits'];
+    $artist = $row['artist'];
   }
+  return $artist;
 }
 
 function getAlbumForSong($songID){
+  $album="<<unknown album>>";
   $sql="SELECT album_title as album_title
   FROM cjohnson_qu5773oo.Player_Album
-  WHERE Album_id=(select Artist_id FROM cjohnson_qu5773oo.Player_Song where song_id='$songID')";
+  WHERE Album_id=(select Album_id FROM cjohnson_qu5773oo.Player_Song where song_id='$songID')";
+  require '../SQL_CONNECT.php';
   $result=@mysqli_query($conn, $sql);
   if ($result) {
     $row=mysqli_fetch_assoc($result);
-    return $row['album_title'];
+    $album = $row['album_title'];
   }
+  return $album;
 }
 
 function getSongsForAlbum($albumID){

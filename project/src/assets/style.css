@@ -111,11 +111,13 @@ input{
 .libView .button{
   width: 24%;
 }
-.styled-select{
-  border: 1px solid #ccc;
-  height: 34px;
-  width: 90%;
-  margin:auto;
-  border-radius: 15px;
-  background-color: darkseagreen;
-}
+select {
+   border: 0;
+   color: #ebdbb2;
+   background: transparent;
+   font-size: 20px;
+   font-weight: bold;
+   padding: 2px 10px;
+   width: 378px;
+   *width: 350px;
+   *background: #darkseagreen;

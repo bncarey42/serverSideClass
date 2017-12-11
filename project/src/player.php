@@ -1,11 +1,17 @@
-<?php include('assets/includes/header.php');
+<?php
+  echo "$id";
+  include('assets/includes/header.php');
   $ids=$_SESSION['playlistIDs'];
   $currentSongNum=0;
+  $currentSongURL="";
+  foreach ($ids as $id) {
+
+  }
 ?>
   <script type='text/javascript'>
-  var audio = $('#player')
+  var audio = $('#player');
   audio.addEventListener('ended', function(){
-    <?php $currentSongURL = getCurrentSongURL($currentSongNum++)?>
+    <?php $currentSongURL = getCurrentSongURL($ids['$currentSongNum++']);?>
     audio.src=<?php echo"$currentSongURL"; ?>;
     audo.pause();
     audio.load();
@@ -14,18 +20,18 @@
   </script>
   <section class="player">
     <audio id="player" controls autoplay preload="auto">
-      <source src="assets/audio/HailGuest.mp3" type="audio/mpeg"/>
+      <source src="$currentSongURL" type="audio/mpeg"/>
       You can't do anything can you internet explorer?!
     </audio>
   </section>
-  <section class="playlist">
+  <!--<section class="playlist">
     <h2>UP NEXT</h>
     <ul>
-      <?php
+      <?php /*
         for ($i=0; $i < 75 ; $i++) {
           echo "<li class="playlistEntries"> <a><h4>Title : Artist</h4></a> </li>";
         }
-       ?>
+      */ ?>
     </ul>
-  </section>
+  </section> -->
 <?php include('assets/includes/footer.php') ?>

@@ -1,8 +1,15 @@
 <?php
 session_start();
-function getCurrentSongURL($currentSet){
-
-    return $curentSongURL;
+function getCurrentSongURL($currentID){
+  $currentSongURL="";
+  $sql="SELECT song_url as url FROM cjohnson_qu5773oo.Player_Song WHERE Song_ID=$currentID";
+  require '../SQL_CONNECT.php';
+  $result=@mysqli_query($conn, $sql);
+  if($result){
+    $row=mysqli_fetch_assoc($result);
+    $currentSongURL=$row['url'];
+  }
+  return $curentSongURL;
 }
 
 function getAllAlbums(){

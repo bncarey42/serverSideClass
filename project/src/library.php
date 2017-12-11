@@ -46,7 +46,7 @@
           }
         ?>
       </table>
-      <input type='submit' class='button' name='doSongs' value='Play selected songs now' />
+      <input type='submit' class='button' name='doSongs' value='Play now' />
       <input type='submit' class='button' name='doSongs' value='Add selected songs to playlist' />
     </form>
 <?php include('assets/includes/footer.php'); ?>

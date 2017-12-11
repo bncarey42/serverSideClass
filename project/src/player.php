@@ -1,12 +1,9 @@
 <?php
-  echo "$id";
   include('assets/includes/header.php');
   $ids=$_SESSION['playlistIDs'];
   $currentSongNum=0;
   $currentSongURL="";
-  foreach ($ids as $id) {
 
-  }
 ?>
   <script type='text/javascript'>
   var audio = $('#player');

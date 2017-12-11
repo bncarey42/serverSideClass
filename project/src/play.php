@@ -6,12 +6,12 @@
   switch($playlist){
     case "Play selected songs now":
       $playlist=$_POST['id'];
-      echo "play now";
+      foreach ($playlist as $id) {
+        echo $id;
+      }
       $_SESSION['playlistIDs']=$playlist;
-      header('Location:player.php');
       break;
     case "Add selected songs to playlist":
-      echo "playlist";
       header('Location:choosePlaylist.php');
       break;
   }

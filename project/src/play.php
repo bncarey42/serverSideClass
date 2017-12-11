@@ -1,9 +1,9 @@
 <?php
   session_start();
-  $playlist=$_POST['doSongs'];
+  $action=$_POST['doSongs'];
   $playlist = array();
 
-  switch($playlist){
+  switch($action){
     case "Play selected songs now":
       $playlist=$_POST['id'];
       foreach ($playlist as $id) {

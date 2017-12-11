@@ -1,4 +1,17 @@
-<?php include('assets/includes/header.php'); ?>
+<?php include('assets/includes/header.php');
+  $ids=$_SESSION['playlistIDs'];
+  $currentSongNum=0;
+?>
+  <script type='text/javascript'>
+  var audio = $('#player')
+  audio.addEventListener('ended', function(){
+    <?php $currentSongURL = getCurrentSongURL($currentSongNum++)?>
+    audio.src=<?php echo"$currentSongURL"; ?>;
+    audo.pause();
+    audio.load();
+    audio.play();
+  });
+  </script>
   <section class="player">
     <audio id="player" controls autoplay preload="auto">
       <source src="assets/audio/HailGuest.mp3" type="audio/mpeg"/>
@@ -15,5 +28,4 @@
        ?>
     </ul>
   </section>
-</body>
-</html>
+<?php include('assets/includes/footer.php') ?>

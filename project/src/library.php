@@ -20,7 +20,7 @@
   }
 ?>
   <h1><?php echo"$title"; ?></h1>
-  <form action='<<<>>>.php' method='POST' class='songs'>
+  <form action='play.php' method='POST' class='songs'>
     <table>
       <tr class='header'>
         <th></th>
@@ -37,24 +37,16 @@
           echo"
             <tr class='$rowClass'>
               <td><input type='checkbox' name='id[]' value='$id'\></td>
-              <td>$name</td>
-              <td>$artist</td>
-              <td>$album</td>
-            </tr>";
+              <td>$name</td>";
+          if($title!='Playlists'){
+            echo "<td>$artist</td><td>$album</td>";
+          }
+          echo "</tr>";
             $i++;
           }
         ?>
       </table>
-      <select>
-        <option>New Playlists</option>
-        <?php
-          $playlists=getAllPlaylists();
-          foreach ($playlists as $id=>$name) {
-            echo "<option>$name</option>";
-          }
-        ?>
-      </select>
-      <input type='submit' class='button' value='Play selected songs now' />
-      <input type='submit' class='button' value='Add selected songs to playlist' />
+      <input type='submit' class='button' name='doSongs' value='Play selected songs now' />
+      <input type='submit' class='button' name='doSongs' value='Add selected songs to playlist' />
     </form>
 <?php include('assets/includes/footer.php'); ?>

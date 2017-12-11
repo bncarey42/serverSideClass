@@ -121,3 +121,13 @@ select {
    width: 378px;
    *width: 350px;
    *background: #darkseagreen;
+}
+.even{
+  background-color: #504945;
+}
+.odd{
+  background-color: #665c54;
+}
+table{
+  border: none;
+}

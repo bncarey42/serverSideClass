@@ -1,8 +1,9 @@
-<?php session_start();
+<?php session_start(); include('assets/includes/functions.php');
 $action=$_POST['action'];
 $songsToAdd=$_SESSION['songIDs'];
 switch ($action) {
   case 'Add songs to playlist':
+    $playlistID=$_POST['id'];
     foreach ($songsToAdd as $songToAdd) {
       addSongToPlayList($songToAdd, $playlistID);
     }

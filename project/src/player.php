@@ -2,17 +2,18 @@
   include('assets/includes/header.php');
   $ids=$_SESSION['songIDs'];
   $currentSongNum=0;
-  $currentSongURL=getCurrentSongURL($currentSongNum++);
+
 ?>
+<script src="https://code.jquery.com/jquery-2.2.0.js" ></script>
 <script>
-var vid = document.getElementById("myAudio");
-function myFunction() {
-  <?php $currentSongURL=getCurrentSongURL($currentSongNum++); ?>
-    alert(vid.ended);
-}
+    var aud = document.getElementById('audio')).addEventListener('ended', myFunction() {
+      this.src = "<?php $currentSongURL=getCurrentSongURL($ids[$currentSongNum++]); ?>";
+      aud.load();
+      aud.onloadeddata  = oAudio.play();
+      aud.play();
+    });
 </script>
-  <audio id="myAudio" controls autoplay preload="auto" onended="myFunction()">
-    <source src="<?php echo $currentSongURL;?>" type="audio/mpeg"/>
+  <audio id="audio" controls autoplay preload="auto" src="<?php echo $currentSongURL;?>" autoplay ended="myFunction()">
     You can't do anything can you internet explorer?!
   </audio>
 

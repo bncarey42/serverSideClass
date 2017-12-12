@@ -2,7 +2,7 @@
 session_start();
 function getCurrentSongURL($currentID){
   $currentSongURL="";
-  $sql="SELECT song_url as url FROM cjohnson_qu5773oo.Player_Song WHERE Song_ID=$currentID";
+  $sql="SELECT song_url as url FROM cjohnson_qu5773oo.Player_Song WHERE Song_ID='$currentID'";
   require '../SQL_CONNECT.php';
   $result=@mysqli_query($conn, $sql);
   if($result){
@@ -89,6 +89,8 @@ function getSongNameByID($id){
   return $song;
 }
 
+
+
 function getSongsforPlaylist($playlistID){
     $songs=array();
     $sql="SELECT Song_ID as songIDs From cjohnson_qu5773oo.Player_Playlist_Songs WHERE Playlist_ID=$playlistID";
@@ -96,20 +98,9 @@ function getSongsforPlaylist($playlistID){
     $result=@mysqli_query($conn, $sql);
     if ($result) {
       $row=mysqli_fetch_assoc($result);
-      $song = $row['songIDs'];
+      $songs = $row['songIDs'];
     }
-    return $song;
-  }
-
-  function createPlaylist($playlistName){
-    $plID="";
-    $sql="INSERT INTO cjohnson_qu5773oo.Player_Playlist (Playlist_Name) VALUES('$playlistName')";
-    require '../SQL_CONNECT.php';
-    $result=@mysqli_query($conn, $sql);
-    if($result){
-      $plID=getPlaylistIDByName($playlistName);
-    }
-      return $plID;
+    return $songs;
   }
 
 function addSongToPlayList($songID, $playlistID){
@@ -117,6 +108,21 @@ function addSongToPlayList($songID, $playlistID){
       require '../SQL_CONNECT.php';
       $result=@mysqli_query($conn, $sql);
 }
+
+function createPlaylist($playlistName){
+  $plID="";
+  $sql="INSERT INTO cjohnson_qu5773oo.Player_Playlist (Playlist_Name) VALUES('$playlistName')";
+  require '../SQL_CONNECT.php';
+  $result=@mysqli_query($conn, $sql);
+  if($result){
+    $plID=getPlaylistIDByName($playlistName);
+    $uid=$_SESSION['uid'];
+    $sql="INSERT INTO cjohnson_qu5773oo.Player_User_Playlists (User_ID,playlist_ID) Values ($uid, $plID)";
+    $result=@mysqli_query($conn, $sql);
+  }
+    return $plID;
+}
+
 
 function getPlaylistIDByName($playlistName){
     $playlist="";
@@ -131,4 +137,5 @@ function getPlaylistIDByName($playlistName){
     }
     return $playlist;
   }
+
 ?>

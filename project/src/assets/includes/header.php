@@ -8,7 +8,7 @@
 <body>
     <table class="topBar">
       <tr>
-        <td id='topLeft'><h1>PHPLAYER</h1></td>
+        <td id='topLeft'><h1><a href="library.php">PHPLAYER</a></h1></td>
         <td id='topRight'>
           <?php if($_SESSION['loggedOn']){
           $userName=$_SESSION['uname'];

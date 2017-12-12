@@ -56,30 +56,8 @@ footer{
 a:hover{
   color: #83a598;
 }
-.player{
-  background-color: #83a598;
-  padding-top: 3px;
-  position: fixed;
-  bottom: 0;
-  width: 75%;
-  z-index: 0;
-}
-audio{
-  margin-bottom: -5px;
-  width: 100%;
-}
-.playlist{
-  float: right;
-  width: 25%;
-  height: 100%;
-  background-color: #1d2021;
-  text-align: center;
-}
-.playlist ul{
-  list-style: none;
-  text-transform: capitalize;
-}
 input{
+  text-align: center;
   background-color: #ebdbb2;
   border-color: #282828;
   border-radius: 10px;
@@ -130,4 +108,19 @@ select {
 }
 table{
   border: none;
+}
+.upnext{
+  margin: 2%;
+  padding: 0px;
+}
+.upnext li{
+  list-style-type: none;
+  list-style: none;
+}
+
+#player{
+  width: 100%;
+  background-color: darkseagreen;
+  color: darkseagreen;
+  background: darkseagreen;
 }

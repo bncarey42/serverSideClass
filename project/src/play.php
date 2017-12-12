@@ -1,15 +1,12 @@
 <?php
   session_start();
   $action=$_POST['doSongs'];
-  $playlist = array();
+  $playlists = array();
 
   switch($action){
     case "Play selected songs now":
-      $playlist=$_POST['id'];
-      foreach ($playlist as $id) {
-        echo $id;
-      }
-      $_SESSION['playlistIDs']=$playlist;
+      $_SESSION['songIDs']=$_POST['ids'];
+      header('Location:player.php');
       break;
     case "Add selected songs to playlist":
       header('Location:choosePlaylist.php');

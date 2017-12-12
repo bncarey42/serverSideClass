@@ -1,34 +1,35 @@
 <?php
   include('assets/includes/header.php');
-  $ids=$_SESSION['playlistIDs'];
+  $ids=$_SESSION['songIDs'];
   $currentSongNum=0;
-  $currentSongURL="";
-
+  $currentSongURL=getCurrentSongURL($currentSongNum++);
 ?>
-  <script type='text/javascript'>
-  var audio = $('#player');
-  audio.addEventListener('ended', function(){
-    <?php $currentSongURL = getCurrentSongURL($ids['$currentSongNum++']);?>
-    audio.src=<?php echo"$currentSongURL"; ?>;
-    audo.pause();
-    audio.load();
-    audio.play();
-  });
-  </script>
-  <section class="player">
-    <audio id="player" controls autoplay preload="auto">
-      <source src="$currentSongURL" type="audio/mpeg"/>
-      You can't do anything can you internet explorer?!
-    </audio>
-  </section>
-  <!--<section class="playlist">
-    <h2>UP NEXT</h>
-    <ul>
-      <?php /*
-        for ($i=0; $i < 75 ; $i++) {
-          echo "<li class="playlistEntries"> <a><h4>Title : Artist</h4></a> </li>";
-        }
-      */ ?>
-    </ul>
-  </section> -->
+<script>
+var vid = document.getElementById("myAudio");
+function myFunction() {
+  <?php $currentSongURL=getCurrentSongURL($currentSongNum++); ?>
+    alert(vid.ended);
+}
+</script>
+  <audio id="myAudio" controls autoplay preload="auto" onended="myFunction()">
+    <source src="<?php echo $currentSongURL;?>" type="audio/mpeg"/>
+    You can't do anything can you internet explorer?!
+  </audio>
+
+  <h2>Now Playing</h2>
+  <ul class="upnext">
+    <?php
+    $i=0;
+    foreach($ids as $id){
+      $rowClass=(($i%2==0) ? "even" : "odd");
+      $name=getSongNameByID($id);
+      $album=getAlbumForSong($id);
+      $artist=getArtistForSong($id);
+      echo" <li class='$rowClass'>
+          $name - $artist - $album
+          </li>";
+          $i++;
+      } ?>
+  </ul>
+
 <?php include('assets/includes/footer.php') ?>

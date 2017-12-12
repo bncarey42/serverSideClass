@@ -9,15 +9,7 @@ function getCurrentSongURL($currentID){
     $row=mysqli_fetch_assoc($result);
     $currentSongURL=$row['url'];
   }
-  return $curentSongURL;
-}
-
-function getAllAlbums(){
-    return ;
-}
-
-function getAllAlbumsForArtist(){
-    return ;
+  return $currentSongURL;
 }
 
 function getAllPlaylists(){
@@ -85,24 +77,58 @@ function getAlbumForSong($songID){
   return $album;
 }
 
-function getSongsForAlbum($albumID){
-    return ;
-}
-
-function getSongsForArtist($artistID){
-    return ;
+function getSongNameByID($id){
+  $song="";
+  $sql="SELECT song_title as songName FROM cjohnson_qu5773oo.Player_Song where song_id='$id'";
+  require '../SQL_CONNECT.php';
+  $result=@mysqli_query($conn, $sql);
+  if ($result) {
+    $row=mysqli_fetch_assoc($result);
+    $song = $row['songName'];
+  }
+  return $song;
 }
 
 function getSongsforPlaylist($playlistID){
-    return ;
-}
+    $songs=array();
+    $sql="SELECT Song_ID as songIDs From cjohnson_qu5773oo.Player_Playlist_Songs WHERE Playlist_ID=$playlistID";
+    require '../SQL_CONNECT.php';
+    $result=@mysqli_query($conn, $sql);
+    if ($result) {
+      $row=mysqli_fetch_assoc($result);
+      $song = $row['songIDs'];
+    }
+    return $song;
+  }
+
+  function createPlaylist($playlistName){
+    $plID="";
+    $sql="INSERT INTO cjohnson_qu5773oo.Player_Playlist (Playlist_Name) VALUES('$playlistName')";
+    require '../SQL_CONNECT.php';
+    $result=@mysqli_query($conn, $sql);
+    if($result){
+      $plID=getPlaylistIDByName($playlistName);
+    }
+      return $plID;
+  }
 
 function addSongToPlayList($songID, $playlistID){
-
+  $sql="INSERT INTO cjohnson_qu5773oo.Player_Playlist_Songs (Song_ID, Playlist_ID) VALUES ('$songID', '$playlistID')";
+      require '../SQL_CONNECT.php';
+      $result=@mysqli_query($conn, $sql);
 }
 
-function addAlbumToPlaylist(){
-
-}
-
+function getPlaylistIDByName($playlistName){
+    $playlist="";
+    $sql="SELECT Playlist_ID as plID FROM cjohnson_qu5773oo.Player_Playlist p
+      join cjohnson_qu5773oo.Player_User_Playlists up on p.playlist_id=up.playlist_id
+    WHERE up.user_ID='$uid' AND p.playlist_name=$playlistName";
+    require '../SQL_CONNECT.php';
+    $result=@mysqli_query($conn, $sql);
+    if ($result) {
+      $row=mysqli_fetch_assoc($result);
+      $playlist = $row['plID'];
+    }
+    return $playlist;
+  }
 ?>

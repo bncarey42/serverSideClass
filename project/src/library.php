@@ -36,7 +36,7 @@
           $artist=getArtistForSong($id);
           echo"
             <tr class='$rowClass'>
-              <td><input type='checkbox' name='id[]' value='$id'\></td>
+              <td><input type='checkbox' name='ids[]' value='$id'\></td>
               <td>$name</td>";
           if($title!='Playlists'){
             echo "<td>$artist</td><td>$album</td>";
@@ -46,7 +46,7 @@
           }
         ?>
       </table>
-      <input type='submit' class='button' name='doSongs' value='Play now' />
+      <input type='submit' class='button' name='doSongs' value='Play selected songs now' />
       <input type='submit' class='button' name='doSongs' value='Add selected songs to playlist' />
     </form>
 <?php include('assets/includes/footer.php'); ?>

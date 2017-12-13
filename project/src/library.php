@@ -7,6 +7,7 @@
   <input type='submit' name='libView' class='button' value='Playlists'/>
 </form>
 <?php
+  $title="";
   $viewDetail = array();
   switch($view){
     case 'Playlists':
@@ -37,11 +38,9 @@
           echo"
             <tr class='$rowClass'>
               <td><input type='checkbox' name='ids[]' value='$id'\></td>
-              <td>$name</td>";
-          if($title!='Playlists'){
-            echo "<td>$artist</td><td>$album</td>";
-          }
-          echo "</tr>";
+              <td>$name</td>
+              <td>$artist</td><td>$album</td>
+            </tr>";
             $i++;
           }
         ?>

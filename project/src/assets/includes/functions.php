@@ -117,7 +117,8 @@ function createPlaylist($playlistName){
   if($result){
     $plID=getPlaylistIDByName($playlistName);
     $uid=$_SESSION['uid'];
-    $sql="INSERT INTO cjohnson_qu5773oo.Player_User_Playlists (User_ID,playlist_ID) Values ($uid, $plID)";
+    $sql="INSERT INTO cjohnson_qu5773oo.Player_User_Playlists (User_ID,playlist_ID) Values ('$uid', '$plID')";
+    require '../SQL_CONNECT.php';
     $result=@mysqli_query($conn, $sql);
   }
     return $plID;
@@ -126,9 +127,8 @@ function createPlaylist($playlistName){
 
 function getPlaylistIDByName($playlistName){
     $playlist="";
-    $sql="SELECT Playlist_ID as plID FROM cjohnson_qu5773oo.Player_Playlist p
-      join cjohnson_qu5773oo.Player_User_Playlists up on p.playlist_id=up.playlist_id
-    WHERE up.user_ID='$uid' AND p.playlist_name=$playlistName";
+    $sql="SELECT Playlist_ID as plID FROM cjohnson_qu5773oo.Player_Playlist
+    WHERE playlist_name=$playlistName";
     require '../SQL_CONNECT.php';
     $result=@mysqli_query($conn, $sql);
     if ($result) {

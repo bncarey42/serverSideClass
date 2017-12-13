@@ -7,9 +7,8 @@
 <script src="https://code.jquery.com/jquery-2.2.0.js" ></script>
 <script>
     var aud = document.getElementById('audio')).addEventListener('ended', myFunction() {
-      this.src = "<?php $currentSongURL=getCurrentSongURL($ids[$currentSongNum++]); ?>";
+      aud.src = "<?php $currentSongURL=getCurrentSongURL($ids[$currentSongNum++]); ?>";
       aud.load();
-      aud.onloadeddata  = oAudio.play();
       aud.play();
     });
 </script>
@@ -33,4 +32,4 @@
       } ?>
   </ul>
 
-<?php include('assets/includes/footer.php') ?>
+<?php include('assets/includes/footer.php');?>

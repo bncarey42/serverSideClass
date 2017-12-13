@@ -19,6 +19,7 @@ switch ($action) {
     foreach ($songsToAdd as $songToAdd) {
       addSongToPlayList($songToAdd, $plID);
     }
+    
     header('Location:player.php');
     break;
 }
